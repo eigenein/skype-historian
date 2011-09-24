@@ -1,0 +1,48 @@
+﻿<Pages:AbstractPage x:Class="SkypeHistorian.Controls.Pages.FinishingPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:Pages="clr-namespace:SkypeHistorian.Controls.Pages" mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0">
+            <TextBlock TextWrapping="Wrap"
+                       x:Name="noteLabel"
+                       x:FieldModifier="private"
+                       Text="noteLabel"
+                       FontSize="14"/>
+        </Label>
+        <Label Grid.Row="1"
+               x:Name="chatsExportedLabel"
+               x:FieldModifier="private"
+               Margin="0,8,0,0">
+            chatsExportedLabel
+        </Label>
+        <Label Grid.Row="2"
+               x:Name="messagesExportedLabel"
+               x:FieldModifier="private">
+            messagesExportedLabel
+        </Label>
+        <CheckBox Grid.Row="3" Margin="8,16,8,8"
+                  FontSize="14"
+                  x:Name="startAgainCheckBox"
+                  x:FieldModifier="private">
+            startAgainCheckBox
+        </CheckBox>
+        <CheckBox Grid.Row="4" Margin="8"
+                  IsChecked="True"
+                  FontSize="14"
+                  x:Name="showExportedCheckBox"
+                  x:FieldModifier="private">
+            showExportedCheckBox
+        </CheckBox>
+    </Grid>
+</Pages:AbstractPage>

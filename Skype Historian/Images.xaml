@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <BitmapImage x:Key="optionsImage" UriSource="Images/Options.png"/>
+    <BitmapImage x:Key="exportingImage" UriSource="Images/Exporting.png"/>
+    <BitmapImage x:Key="finishingImage" UriSource="Images/Finishing.png"/>
+    <BitmapImage x:Key="skypeImage" UriSource="Images/Skype.png"/>
+    <BitmapImage x:Key="homeImage" UriSource="Images/Home.png"/>
+</ResourceDictionary>

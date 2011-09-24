@@ -1,0 +1,38 @@
+﻿<Pages:AbstractPage x:Class="SkypeHistorian.Controls.Pages.WelcomePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Pages="clr-namespace:SkypeHistorian.Controls.Pages" mc:Ignorable="d" 
+             d:DesignHeight="136" d:DesignWidth="210" x:ClassModifier="internal">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0">
+            <TextBlock x:Name="welcomeTextLabel"
+                       x:FieldModifier="private"
+                       TextWrapping="Wrap">
+                welcomeTextLabel
+            </TextBlock>
+        </Label>
+        <Label Grid.Row="1">
+            <TextBlock x:Name="skypeInstalled"
+                       x:FieldModifier="private"
+                       TextWrapping="Wrap">
+                skypeInstalled
+            </TextBlock>
+        </Label>
+        <Label Grid.Row="3">
+            <TextBlock x:Name="noteTextLabel"
+                       x:FieldModifier="private"
+                       Foreground="DarkGray"
+                       TextWrapping="Wrap">
+                noteTextLabel
+            </TextBlock>
+        </Label>
+    </Grid>
+</Pages:AbstractPage>

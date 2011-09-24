@@ -1,0 +1,43 @@
+﻿<Pages:AbstractPage x:Class="SkypeHistorian.Controls.Pages.ExportingPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:Pages="clr-namespace:SkypeHistorian.Controls.Pages" mc:Ignorable="d" 
+             d:DesignHeight="247" d:DesignWidth="423">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0">
+            <TextBlock TextWrapping="Wrap"
+                       x:Name="note1Label"
+                       x:FieldModifier="private">
+                note1Label
+            </TextBlock>
+        </Label>
+        <Label Grid.Row="1">
+            <TextBlock TextWrapping="Wrap"
+                       FontWeight="Bold"
+                       x:Name="note2Label"
+                       x:FieldModifier="private">
+                note2Label
+            </TextBlock>
+        </Label>
+        <Label Grid.Row="3"
+               x:Name="topInfoLabel"
+               x:FieldModifier="private"/>
+        <Label Grid.Row="4"
+               x:Name="bottomInfoLabel" 
+               x:FieldModifier="private"
+               Margin="0,0,0,8"/>
+        <ProgressBar Grid.Row="5" Height="23"
+                     x:Name="progressBar"
+                     x:FieldModifier="private"/>
+    </Grid>
+</Pages:AbstractPage>

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skype Historian", "Skype Historian\Skype Historian.csproj", "{34A00097-D408-4BFF-82DF-7D249BD4B27B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34A00097-D408-4BFF-82DF-7D249BD4B27B}.Debug|x86.ActiveCfg = Debug|x86
+		{34A00097-D408-4BFF-82DF-7D249BD4B27B}.Debug|x86.Build.0 = Debug|x86
+		{34A00097-D408-4BFF-82DF-7D249BD4B27B}.Release|x86.ActiveCfg = Release|x86
+		{34A00097-D408-4BFF-82DF-7D249BD4B27B}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

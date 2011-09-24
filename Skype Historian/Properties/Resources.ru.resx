@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ChatsExported" xml:space="preserve">
+    <value>{0} чатов из {1} экспортировано</value>
+  </data>
+  <data name="CheckingForSkypePageNote" xml:space="preserve">
+    <value>Во время экспорта Skype должен быть запущен. Если это не так, Skype Historian запустит его самостоятельно.</value>
+  </data>
+  <data name="CheckingForSkypePageTitle" xml:space="preserve">
+    <value>Запуск Skype</value>
+  </data>
+  <data name="ExportingPageClosing" xml:space="preserve">
+    <value>Завершение... {0} из {1}</value>
+  </data>
+  <data name="ExportingPageNote1" xml:space="preserve">
+    <value>Экспортирование сообщений...</value>
+  </data>
+  <data name="ExportingPageNote2" xml:space="preserve">
+    <value>Пожалуйста, переключитесь в Skype и разрешите Skype Historian получить доступ к вашим перепискам. Не закрывайте Skype в течение экспортирования!</value>
+  </data>
+  <data name="ExportingPageTitle" xml:space="preserve">
+    <value>Процесс экспортирования</value>
+  </data>
+  <data name="FinishingPageShowExported" xml:space="preserve">
+    <value>Показать экспортированные данные</value>
+  </data>
+  <data name="FinishingPageStartAgain" xml:space="preserve">
+    <value>Начать заново</value>
+  </data>
+  <data name="FinishingPageTitle" xml:space="preserve">
+    <value>Завершение</value>
+  </data>
+  <data name="MainWindowConfirmClose" xml:space="preserve">
+    <value>Сейчас выполняется экспорт ваших записей. Если вы закроете окно, процесс будет прерван. Действительно закрыть окно?</value>
+  </data>
+  <data name="MainWindowFinish" xml:space="preserve">
+    <value>Завершить</value>
+  </data>
+  <data name="MainWindowLeftBarExporting" xml:space="preserve">
+    <value>Экспорт</value>
+  </data>
+  <data name="MainWindowLeftBarFinishing" xml:space="preserve">
+    <value>Завершение</value>
+  </data>
+  <data name="MainWindowLeftBarOptions" xml:space="preserve">
+    <value>Настройки экспорта</value>
+  </data>
+  <data name="MainWindowLeftBarSkype" xml:space="preserve">
+    <value>Запуск Skype</value>
+  </data>
+  <data name="MainWindowLeftBarWelcome" xml:space="preserve">
+    <value>Приветствие</value>
+  </data>
+  <data name="MainWindowNext" xml:space="preserve">
+    <value>Далее</value>
+  </data>
+  <data name="MessagesExported" xml:space="preserve">
+    <value>{0} сообщений экспортировано</value>
+  </data>
+  <data name="OutputTypePageByMembers" xml:space="preserve">
+    <value>По собеседникам</value>
+  </data>
+  <data name="OutputTypePageByMembersThenByMonth" xml:space="preserve">
+    <value>По собеседникам, затем по месяцу</value>
+  </data>
+  <data name="OutputTypePageByMonthThenByDayThenByMembers" xml:space="preserve">
+    <value>По месяцу, затем по дню, затем по собеседникам</value>
+  </data>
+  <data name="OutputTypePageByMonthThenByMembers" xml:space="preserve">
+    <value>По месяцу, затем по собеседникам</value>
+  </data>
+  <data name="OutputTypePageChooseThis" xml:space="preserve">
+    <value>Выберите, если не знаете</value>
+  </data>
+  <data name="OutputTypePageCompress" xml:space="preserve">
+    <value>Сжимать данные, чтобы уменьшить их размер</value>
+  </data>
+  <data name="OutputTypePageFolderBrowserTitle" xml:space="preserve">
+    <value>Выберите папку, в которую нужно сохранить экспортированные данные:</value>
+  </data>
+  <data name="OutputTypePageGroup" xml:space="preserve">
+    <value>Группировать сообщения</value>
+  </data>
+  <data name="OutputTypePageNote" xml:space="preserve">
+    <value>Войдите в Skype под своим именем и выберите подходящий способ экспорта переписок:</value>
+  </data>
+  <data name="OutputTypePageSaveAsTitle" xml:space="preserve">
+    <value>Сохранить экспортированные данные как</value>
+  </data>
+  <data name="OutputTypePageTextFiles" xml:space="preserve">
+    <value>Текстовые файлы</value>
+  </data>
+  <data name="OutputTypePageTitle" xml:space="preserve">
+    <value>Куда будем экспортировать</value>
+  </data>
+  <data name="StatusFinished" xml:space="preserve">
+    <value>Экспортирование завершено успешно!</value>
+  </data>
+  <data name="StatusSkypeCannotGetChatCollection" xml:space="preserve">
+    <value>Skype Historian не смог получить доступ к вашим перепискам. Убедитесь, что вход в Skype выполнен и вы разрешили Skype Historian получить доступ в главном окне Skype.</value>
+  </data>
+  <data name="StatusSkypeInitializationFailed" xml:space="preserve">
+    <value>Не удалось инициализировать Skype. Переустановка приложения может решить проблему.</value>
+  </data>
+  <data name="StatusSkypeStartFailed" xml:space="preserve">
+    <value>Не удалось запустить Skype автоматически. Попробуйте запустить Skype вручную, а затем запустить Skype Historian ещё раз.</value>
+  </data>
+  <data name="StatusUnknownFailure" xml:space="preserve">
+    <value>Произошла непредвиденная ошибка. Код ошибки: {0}. Попробуйте запустить экспорт заново.</value>
+  </data>
+  <data name="WaitingForSkypeString" xml:space="preserve">
+    <value>Ожидание ответа от Skype...</value>
+  </data>
+  <data name="WelcomePageNote" xml:space="preserve">
+    <value>Программа не собирает и не пересылает никаких личных данных. Тем не менее, она не даёт никаких гарантий, поэтому используйте её на свой страх и риск.</value>
+  </data>
+  <data name="WelcomePageSkypeInstalled" xml:space="preserve">
+    <value>На компьютере должен быть установлен Skype.</value>
+  </data>
+  <data name="WelcomePageTitle" xml:space="preserve">
+    <value>Добро пожаловать</value>
+  </data>
+  <data name="WelcomePageWelcomeLabel" xml:space="preserve">
+    <value>Skype Historian поможет Вам сохранить и, тем самым, не потерять важные переписки.</value>
+  </data>
+</root>

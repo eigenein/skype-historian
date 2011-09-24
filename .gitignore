@@ -1,0 +1,5 @@
+_ReSharper.Skype Historian
+*.user
+Skype Historian/bin
+Skype Historian/obj
+*.suo
