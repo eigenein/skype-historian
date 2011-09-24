@@ -3,3 +3,5 @@ _ReSharper.Skype Historian
 Skype Historian/bin
 Skype Historian/obj
 *.suo
+*.cache
+*.tmp_proj
