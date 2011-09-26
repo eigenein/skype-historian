@@ -1,0 +1,51 @@
+﻿[Setup]
+AppName=Skype Historian
+AppVersion=0.1
+DefaultDirName={localappdata}\Skype Historian
+DefaultGroupName=Skype Historian
+AllowNoIcons=no
+AlwaysUsePersonalGroup=yes
+AppComments=Allows you to backup all your Skype chats history
+AppContact=eigenein@gmail.com
+AppCopyright=Pavel Perestoronin (c) 2011
+AppPublisher=Pavel Perestoronin
+CreateUninstallRegKey=not IsTaskSelected('portablemode')
+OutputDir=..\Installers
+PrivilegesRequired=lowest
+SolidCompression=yes
+Uninstallable=not IsTaskSelected('portablemode')
+SetupIconFile=SetupIconFile.ico
+
+[Tasks]
+Name: portablemode; Description: "{cm:PortableMode}"; Flags: checkedonce unchecked
+
+[Dirs]
+Name: "{app}\ru"
+
+[Files]
+Source: ".\Skype Historian\bin\Release\Skype Historian.exe"; DestDir: "{app}"
+Source: ".\Skype Historian\bin\Release\ICSharpCode.SharpZipLib.dll"; DestDir: "{app}"
+Source: ".\Skype Historian\bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"
+Source: ".\Skype Historian\bin\Release\NLog.config"; DestDir: "{app}"
+Source: ".\Skype Historian\bin\Release\NLog.dll"; DestDir: "{app}"
+Source: ".\Skype Historian\bin\Release\Skype4COMWrapper.dll"; DestDir: "{app}"
+Source: ".\Skype Historian\bin\Release\WPFToolkit.dll"; DestDir: "{app}"
+Source: ".\Skype Historian\bin\Release\WPFToolkit.Extended.dll"; DestDir: "{app}"
+Source: ".\Externals\Skype4COM.dll"; DestDir: "{app}"
+Source: ".\Externals\Skype4COM.dll.manifest"; DestDir: "{app}"
+Source: ".\Skype Historian\bin\Release\ru\Skype Historian.resources.dll"; DestDir: "{app}\ru"
+
+[Icons]
+Name: "{group}\Skype Historian"; Filename: "{app}\Skype Historian.exe"; WorkingDir: "{app}"
+Name: "{group}\{cm:Uninstall}"; Filename: "{uninstallexe}"
+Name: "{userdesktop}\Skype Historian"; Filename: "{app}\Skype Historian.exe"; WorkingDir: "{app}"
+
+[Languages]
+Name: "en"; MessagesFile: "compiler:Default.isl"
+Name: "ru"; MessagesFile: "compiler:Languages\Russian.isl"
+
+[CustomMessages]
+en.PortableMode=&Portable Mode
+ru.PortableMode=&Портативная версия
+en.Uninstall=Uninstall the application
+ru.Uninstall=Удалить приложение

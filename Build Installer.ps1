@@ -33,10 +33,10 @@ if ($LastExitCode -ne 0)
 else
 {
     Write-Output 'Building Installer ...'
-    & 'C:\Program Files (x86)\NSIS\makensis' 'Skype Historian.nsi'
+    & 'C:\Program Files (x86)\Inno Setup 5\iscc' 'Skype Historian.iss'
     if ($LastExitCode -eq 0)
     {
-        Move-Item '..\Installers\Skype Historian Setup.exe' "..\Installers\Skype Historian ${nextVersion} Setup.exe" -Force
+        Move-Item '..\Installers\Setup.exe' "..\Installers\Skype Historian ${nextVersion} Setup.exe" -Force
     }
     else
     {
