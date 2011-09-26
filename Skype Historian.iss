@@ -15,6 +15,9 @@ PrivilegesRequired=lowest
 SolidCompression=yes
 Uninstallable=not IsTaskSelected('portablemode')
 SetupIconFile=SetupIconFile.ico
+UninstallDisplayIcon="{app}\Skype Historian.exe"
+UninstallDisplayName=Skype Historian
+VersionInfoVersion=0.1
 
 [Tasks]
 Name: portablemode; Description: "{cm:PortableMode}"; Flags: checkedonce unchecked
