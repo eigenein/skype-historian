@@ -16,6 +16,17 @@ function Get-Version
         %{[regex]::matches($_, 'AssemblyVersion\("(?<version>[0-9]+(\.([0-9]+)){1,3})"\)')} | %{$_.Groups['version'].value}
 }
 
+function Set-Installer-Version
+{
+    Param([string]$filePath, [string]$version)
+    $tempFilePath = $filePath + ".tmp"
+    Get-Content -Encoding UTF8 $filePath |
+        %{[regex]::replace($_, 'AppVersion\=[0-9.]+', "AppVersion=${version}")} |
+        %{[regex]::replace($_, 'VersionInfoVersion\=[0-9.]+', "VersionInfoVersion=${version}")} |
+        Out-File -Encoding UTF8 $tempFilePath
+    Move-Item $tempFilePath $filePath -Force
+}
+
 Write-Output 'Updating Version ...'
 $currentVersion = Get-Version 'Skype Historian\Properties\AssemblyInfo.cs'
 Write-Output "Current Version ${currentVersion}"
@@ -24,6 +35,7 @@ $nextVersionObject = New-Object Version($currentVersionObject.Major, $currentVer
 $nextVersion = $nextVersionObject.ToString()
 Write-Output "Updating to ${nextVersion}"
 Set-Version 'Skype Historian\Properties\AssemblyInfo.cs' $nextVersion
+Set-Installer-Version 'Skype Historian.iss' $nextVersion
 Write-Output 'Building Skype Historian ...'
 C:\Windows\Microsoft.NET\Framework\v3.5\MSBuild 'Skype Historian.sln' /t:Rebuild /p:Configuration=Release /p:PlatformToolset=v90
 if ($LastExitCode -ne 0)
@@ -33,6 +45,7 @@ if ($LastExitCode -ne 0)
 else
 {
     Write-Output 'Building Installer ...'
+    rm '..\Installers\*.exe'
     & 'C:\Program Files (x86)\Inno Setup 5\iscc' 'Skype Historian.iss'
     if ($LastExitCode -eq 0)
     {
