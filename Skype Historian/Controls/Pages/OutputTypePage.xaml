@@ -28,7 +28,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <RadioButton Grid.Row="0" GroupName="OutputType"
-                         x:Name="htmlRadioButton"
+                         x:Name="textFilesRadioButton"
                          x:FieldModifier="private"
                          Margin="2"
                          IsChecked="True"
@@ -36,7 +36,11 @@
                 <!-- TODO: Make all the same -->
                 <DockPanel HorizontalAlignment="Stretch">
                     <TextBlock FontSize="16" Margin="8,0,0,0"
-                               DockPanel.Dock="Left">HTML</TextBlock>
+                               DockPanel.Dock="Left"
+                               x:Name="textFilesLabel"
+                               x:FieldModifier="private">
+                        textFilesLabel
+                    </TextBlock>
                     <TextBlock FontStyle="Italic"
                                FontSize="16"
                                HorizontalAlignment="Right"
@@ -45,17 +49,6 @@
                     chooseThisNote
                     </TextBlock>
                 </DockPanel>
-            </RadioButton>
-            <RadioButton GroupName="OutputType"
-                         Grid.Row="1"
-                         Margin="2"
-                         x:Name="textFilesRadioButton"
-                         x:FieldModifier="private">
-                <TextBlock FontSize="16" Margin="8,0,0,0"
-                           x:Name="textFilesLabel"
-                           x:FieldModifier="private">
-                    textFilesLabel
-                </TextBlock>
             </RadioButton>
             <RadioButton GroupName="OutputType"
                          Grid.Row="2"
