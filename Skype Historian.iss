@@ -1,6 +1,6 @@
 ﻿[Setup]
 AppName=Skype Historian
-AppVersion=0.1.33.0
+AppVersion=0.1.35.0
 DefaultDirName={localappdata}\Skype Historian
 DefaultGroupName=Skype Historian
 AllowNoIcons=no
@@ -17,7 +17,7 @@ Uninstallable=not IsTaskSelected('portablemode')
 SetupIconFile=SetupIconFile.ico
 UninstallDisplayIcon="{app}\Skype Historian.exe"
 UninstallDisplayName=Skype Historian
-VersionInfoVersion=0.1.33.0
+VersionInfoVersion=0.1.35.0
 
 [Tasks]
 Name: portablemode; Description: "{cm:PortableMode}"; Flags: checkedonce unchecked
@@ -52,3 +52,7 @@ en.PortableMode=&Portable Mode
 ru.PortableMode=&Портативная версия
 en.Uninstall=Uninstall the application
 ru.Uninstall=Удалить приложение
+
+[UninstallDelete]
+Type: files; Name: "{app}\Skype Historian.log"
+Type: files; Name: "{app}\Skype Historian.log.*"
