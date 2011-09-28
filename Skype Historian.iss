@@ -1,6 +1,6 @@
 ﻿[Setup]
 AppName=Skype Historian
-AppVersion=0.1.38.0
+AppVersion=0.1.39.0
 DefaultDirName={localappdata}\Skype Historian
 DefaultGroupName=Skype Historian
 AllowNoIcons=no
@@ -9,20 +9,15 @@ AppComments=Allows you to backup all your Skype chats history
 AppContact=eigenein@gmail.com
 AppCopyright=Pavel Perestoronin (c) 2011
 AppPublisher=Pavel Perestoronin
-CreateUninstallRegKey=not IsTaskSelected('portablemode')
 OutputDir=..\Installers
 PrivilegesRequired=lowest
 SolidCompression=yes
-Uninstallable=not IsTaskSelected('portablemode')
 SetupIconFile=SetupIconFile.ico
 UninstallDisplayIcon="{app}\Skype Historian.exe"
 UninstallDisplayName=Skype Historian
-VersionInfoVersion=0.1.38.0
+VersionInfoVersion=0.1.39.0
 WizardImageFile=compiler:WizModernImage-IS.bmp
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
-
-[Tasks]
-Name: portablemode; Description: "{cm:PortableMode}"; Flags: checkedonce unchecked
 
 [Dirs]
 Name: "{app}\ru"
@@ -50,8 +45,6 @@ Name: "en"; MessagesFile: "compiler:Default.isl"
 Name: "ru"; MessagesFile: "compiler:Languages\Russian.isl"
 
 [CustomMessages]
-en.PortableMode=&Portable Mode
-ru.PortableMode=&Портативная версия
 en.Uninstall=Uninstall the application
 ru.Uninstall=Удалить приложение
 
