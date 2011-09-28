@@ -42,9 +42,8 @@ namespace SkypeHistorian.Controls.Pages
             InitializeComponent();
 
             controlToOutputTypeCache =
-                new Dictionary<RadioButton, OutputType>()
+                new Dictionary<RadioButton, OutputType>
                 {
-                    {htmlRadioButton, OutputType.Html},
                     {jsonRadioButton, OutputType.Json},
                     {xmlRadioButton, OutputType.Xml},
                     {textFilesRadioButton, OutputType.TextFiles},
