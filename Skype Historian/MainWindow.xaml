@@ -75,7 +75,9 @@
                 <TextBlock Margin="12,0,0,0">
                     <Hyperlink NavigateUri="http://eigenein.github.com/skype-historian-website/"
                                Foreground="#003399"
-                               RequestNavigate="HyperlinkRequestNavigate">
+                               RequestNavigate="HyperlinkRequestNavigate"
+                               x:Name="websiteHyperlink"
+                               x:FieldModifier="private">
                         Skype Historian
                     </Hyperlink>
                 </TextBlock>

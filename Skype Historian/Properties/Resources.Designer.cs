@@ -223,6 +223,15 @@ namespace SkypeHistorian.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to http://eigenein.github.com/skype-historian-website/.
+        /// </summary>
+        public static string MainWindowWebsite {
+            get {
+                return ResourceManager.GetString("MainWindowWebsite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} messages exported.
         /// </summary>
         public static string MessagesExported {

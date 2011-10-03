@@ -86,6 +86,8 @@ namespace SkypeHistorian
                 "MainWindowLeftBarFinishing");
             confirmCloseString = ResourceManager.GetString(
                 "MainWindowConfirmClose");
+            websiteHyperlink.NavigateUri = new Uri(ResourceManager.GetString(
+                "MainWindowWebsite"));
 
             Context.Instance.ResourceManager = ResourceManager;
             pagesControl.InitializeLocalization();

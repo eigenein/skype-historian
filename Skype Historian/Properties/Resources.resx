@@ -171,6 +171,9 @@
   <data name="MainWindowNext" xml:space="preserve">
     <value>Next</value>
   </data>
+  <data name="MainWindowWebsite" xml:space="preserve">
+    <value>http://eigenein.github.com/skype-historian-website/</value>
+  </data>
   <data name="MessagesExported" xml:space="preserve">
     <value>{0} messages exported</value>
   </data>
