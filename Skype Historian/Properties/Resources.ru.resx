@@ -171,6 +171,9 @@
   <data name="MainWindowNext" xml:space="preserve">
     <value>Далее</value>
   </data>
+  <data name="MainWindowWebsite" xml:space="preserve">
+    <value>http://eigenein.github.com/skype-historian-website/ru/</value>
+  </data>
   <data name="MessagesExported" xml:space="preserve">
     <value>{0} сообщений экспортировано</value>
   </data>
@@ -187,7 +190,7 @@
     <value>По месяцу, затем по собеседникам</value>
   </data>
   <data name="OutputTypePageChooseThis" xml:space="preserve">
-    <value>Выберите, если не знаете</value>
+    <value>(Рекомендуется)</value>
   </data>
   <data name="OutputTypePageCompress" xml:space="preserve">
     <value>Сжимать данные, чтобы уменьшить их размер</value>

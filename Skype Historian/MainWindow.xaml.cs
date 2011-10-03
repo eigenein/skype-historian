@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Resources;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using NLog;
 using SkypeHistorian.Controls.Pages;
@@ -33,9 +35,18 @@ namespace SkypeHistorian
         private static readonly Color FailureTitleColor =
             Color.FromRgb(0x99, 0x00, 0x33);
 
+        public static readonly RoutedCommand SetRussianLanguageCommand =
+            new RoutedCommand();
+
         private string confirmCloseString;
 
         private readonly Dictionary<string, Label> categoryToLabelCache;
+
+        static MainWindow()
+        {
+            SetRussianLanguageCommand.InputGestures.Add(new KeyGesture(
+                Key.R, ModifierKeys.Control | ModifierKeys.Alt));
+        }
 
         public MainWindow()
         {
@@ -75,6 +86,8 @@ namespace SkypeHistorian
                 "MainWindowLeftBarFinishing");
             confirmCloseString = ResourceManager.GetString(
                 "MainWindowConfirmClose");
+            websiteHyperlink.NavigateUri = new Uri(ResourceManager.GetString(
+                "MainWindowWebsite"));
 
             Context.Instance.ResourceManager = ResourceManager;
             pagesControl.InitializeLocalization();
@@ -149,6 +162,13 @@ namespace SkypeHistorian
                 MessageBoxButton.YesNo, MessageBoxImage.Question) ==
                 MessageBoxResult.No;
             Logger.Info("User have chosen to exit: {0}.", !e.Cancel);
+        }
+
+        private void SetRussianLanguageCommandExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            Thread.CurrentThread.CurrentUICulture =
+                new System.Globalization.CultureInfo("ru");
+            InitializeLocalization();
         }
     }
 }   
