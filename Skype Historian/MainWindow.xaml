@@ -1,7 +1,7 @@
 ﻿<Window x:Class="SkypeHistorian.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-        xmlns:Controls="clr-namespace:SkypeHistorian.Controls"
+        xmlns:Controls="clr-namespace:SkypeHistorian.Controls" xmlns:SkypeHistorian="clr-namespace:SkypeHistorian"
         Title="Skype Historian" Height="360" Width="600"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize"
@@ -14,6 +14,10 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static SkypeHistorian:MainWindow.SetRussianLanguageCommand}"
+                        Executed="SetRussianLanguageCommandExecuted"/>
+    </Window.CommandBindings>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
