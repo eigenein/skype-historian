@@ -1,10 +1,14 @@
 ﻿using System;
+using NLog;
 using Skype4COMWrapper;
 
 namespace SkypeHistorian.Exporting.OutputWriters
 {
     internal class TextFilesOutputWriter : SimpleFilesOutputWriter
     {
+        private static readonly Logger Logger =
+            LogManager.GetCurrentClassLogger();
+
         public TextFilesOutputWriter(Storage storage)
             : base(storage)
         {
@@ -25,11 +29,17 @@ namespace SkypeHistorian.Exporting.OutputWriters
 
         protected override object[] ExtractProperties(IChatMessage message)
         {
+            string body = message.Body;
+            if (String.IsNullOrEmpty(body))
+            {
+                Logger.Info("Message #{0}: empty body - skipped.", message.Id);
+                return null;
+            }
             return new object[]
             {
                 message.Timestamp,
                 message.FromDisplayName,
-                message.Body
+                body
             };
         }
 

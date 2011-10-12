@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using NLog;
 using Skype4COMWrapper;
@@ -12,9 +11,6 @@ namespace SkypeHistorian.Exporting.OutputWriters
         private static readonly Logger Logger =
             LogManager.GetCurrentClassLogger();
 
-        private readonly IList<object[]> messages =
-            new List<object[]>();
-
         protected SimpleFilesOutputWriter(Storage storage) 
             : base(storage)
         {
@@ -25,6 +21,11 @@ namespace SkypeHistorian.Exporting.OutputWriters
 
         protected abstract string Format { get; }
 
+        /// <summary>
+        /// Gets a property set or <c>null</c>c> if the message should be skipped.
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
         protected abstract object[] ExtractProperties(IChatMessage message);
 
         public override bool StoreMessage(string path, IChat chat, IChatMessage message)
@@ -34,6 +35,11 @@ namespace SkypeHistorian.Exporting.OutputWriters
             {
                 Logger.Error("Cannot retrieve the message properties.");
                 return false;
+            }
+            if (properties == null)
+            {
+                // The message is correctly processed, but should be skipped.
+                return true;
             }
             StreamWriter writer = storage.GetWriter(path + Extension);
             writer.WriteLine(Format, properties);
