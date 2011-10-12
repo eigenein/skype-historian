@@ -213,6 +213,9 @@
   <data name="OutputTypePageTitle" xml:space="preserve">
     <value>Where to export</value>
   </data>
+  <data name="OutputTypePageUseNicknames" xml:space="preserve">
+    <value>Always use nicknames in chat titles</value>
+  </data>
   <data name="StatusFinished" xml:space="preserve">
     <value>Congratulations, your Skype chats were successfully exported! You may close this window.</value>
   </data>

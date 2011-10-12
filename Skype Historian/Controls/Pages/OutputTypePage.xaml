@@ -12,6 +12,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Margin="4">
             <TextBlock TextWrapping="Wrap" x:Name="noteLabel"
@@ -72,12 +73,17 @@
                 <TextBlock FontSize="16" Margin="8,0,0,0">XML</TextBlock>
             </RadioButton>
         </Grid>
-        <CheckBox Grid.Row="3" IsChecked="False" Margin="4"
+        <CheckBox Grid.Row="5" IsChecked="False" Margin="4"
                   x:Name="compressCheckBox"
                   x:FieldModifier="private">
             compressCheckBox
         </CheckBox>
-        <DockPanel Grid.Row="4"
+        <CheckBox Grid.Row="4" IsChecked="False" Margin="4"
+                  x:Name="useNicknamesCheckBox"
+                  x:FieldModifier="private">
+            useNicknamesCheckBox
+        </CheckBox>
+        <DockPanel Grid.Row="3"
                     Margin="4">
             <Label VerticalAlignment="Center"
                    DockPanel.Dock="Left"

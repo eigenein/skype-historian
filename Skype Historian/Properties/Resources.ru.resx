@@ -213,6 +213,9 @@
   <data name="OutputTypePageTitle" xml:space="preserve">
     <value>Куда будем экспортировать</value>
   </data>
+  <data name="OutputTypePageUseNicknames" xml:space="preserve">
+    <value>Всегда использовать ники в заголовках чатов</value>
+  </data>
   <data name="StatusFinished" xml:space="preserve">
     <value>Экспортирование завершено успешно!</value>
   </data>

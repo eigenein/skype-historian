@@ -244,7 +244,7 @@ namespace SkypeHistorian.Controls.Pages
                     builder.Append(", ");
                 }
                 string fullName = user.FullName;
-                builder.Append(!String.IsNullOrEmpty(fullName) ?
+                builder.Append(!Context.Instance.UseNicknames && !String.IsNullOrEmpty(fullName) ?
                     fullName : user.Handle);
             }
             if (builder.Length == 0)

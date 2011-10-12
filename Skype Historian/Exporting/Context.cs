@@ -61,6 +61,11 @@ namespace SkypeHistorian.Exporting
 
         public bool IsExportingInProgress { get; set; }
 
+        /// <summary>
+        /// Whether to use nicknames instead of fullnames.
+        /// </summary>
+        public bool UseNicknames { get; set; }
+
         #endregion
     }
 }

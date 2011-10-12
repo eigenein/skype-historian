@@ -71,6 +71,8 @@ namespace SkypeHistorian.Controls.Pages
                 "OutputTypePageByMonthThenByMembers");
             byMonthThenByDaysThenByMembersItem.Content = Context.ResourceManager.GetString(
                 "OutputTypePageByMonthThenByDayThenByMembers");
+            useNicknamesCheckBox.Content = Context.ResourceManager.GetString(
+                "OutputTypePageUseNicknames");
         }
 
         public override string Category
@@ -127,6 +129,7 @@ namespace SkypeHistorian.Controls.Pages
             Context.OutputWriter = OutputWriterFactory.Create(
                 outputType, storage);
             Context.GroupingStrategy = CreateGroupingStrategy();
+            Context.UseNicknames = useNicknamesCheckBox.IsChecked == true;
             return true;
         }
 
