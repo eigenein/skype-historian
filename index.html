@@ -23,6 +23,13 @@
     }
 </script>
 
+<script src="http://shortmail.com/widgets/compose-widget.js?v=1" type="text/javascript"/>
+<script type="text/javascript">
+    Shortmail.ComposeWidget({
+        screenName: 'skypehistorian'
+    });
+</script>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="Lets you easily backup your Skype chats" />
 <meta name="keywords" content="Skype,history,chats,backup,save" />
@@ -174,8 +181,8 @@ License: Creative Commons Attribution
                     <ul>
                         <li>
                             <p style="margin: 0;">
-                                <a href="mailto:skypehistorian@shortmail.com">Send me a mail</a>
-                                and I'll try to help you!
+                                <noscript><a href="mailto:skypehistorian@shortmail.com" onclick="return Shortmail.showWindow();">Send me a mail</a>
+                                and I'll try to help you!</noscript>
                             </p>
                         </li>
                     </ul>
