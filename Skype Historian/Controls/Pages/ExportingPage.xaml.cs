@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Text;
+using System.Threading;
 using NLog;
 using Skype4COMWrapper;
 using SkypeHistorian.Events;
@@ -86,6 +87,7 @@ namespace SkypeHistorian.Controls.Pages
         private void ExportChats()
         {
             Context.IsExportingInProgress = true;
+            Logger.Info("About to get chats collection ...");
             IEnumerator chatEnumerator;
             if (!GetChatCollection(out chatEnumerator))
             {
@@ -161,6 +163,7 @@ namespace SkypeHistorian.Controls.Pages
             IChatCollection chatCollection;
             Dispatcher.Invoke(new Action(
                 () => bottomInfoLabel.Content = waitingForSkypeString));
+            Thread.Sleep(100); // I don't understand why, but it helps to "unhang" showing this page.
             Logger.Info("Awaiting for Skype response ...");
             if (!SafeInvoker.Repeat(() => Context.Skype.Chats,
                 out chatCollection, 3))

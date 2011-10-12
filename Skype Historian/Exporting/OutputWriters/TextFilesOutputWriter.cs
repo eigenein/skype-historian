@@ -32,7 +32,7 @@ namespace SkypeHistorian.Exporting.OutputWriters
             string body = message.Body;
             if (String.IsNullOrEmpty(body))
             {
-                Logger.Info("Message #{0}: empty body - skipped.", message.Id);
+                Logger.Warn("Message #{0}: empty body - skipped.", message.Id);
                 return null;
             }
             return new object[]
