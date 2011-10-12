@@ -12,6 +12,7 @@ using NLog;
 using SkypeHistorian.Controls.Pages;
 using SkypeHistorian.Events;
 using SkypeHistorian.Exporting;
+using SkypeHistorian.Helpers;
 
 namespace SkypeHistorian
 {
@@ -169,6 +170,35 @@ namespace SkypeHistorian
             Thread.CurrentThread.CurrentUICulture =
                 new System.Globalization.CultureInfo("ru");
             InitializeLocalization();
+        }
+
+        private readonly Func<bool> checkAction = UpdatesChecker.CheckUpdateAvailable;
+
+        private void WindowLoaded(object sender, RoutedEventArgs e)
+        {
+            checkAction.BeginInvoke(CheckUpdateAvailableCallback, null);
+        }
+
+        private void CheckUpdateAvailableCallback(IAsyncResult ar)
+        {
+            bool updatesAvailable = checkAction.EndInvoke(ar);
+            if (updatesAvailable)
+            {
+                Logger.Info("Update is available. Will ask the user.");
+                Dispatcher.Invoke(new Action(AskForGoingToUpdate));
+            }
+        }
+
+        private void AskForGoingToUpdate()
+        {
+            if (Microsoft.Windows.Controls.MessageBox.Show(this,
+                ResourceManager.GetString("MainWindowUpdateAvailable"),
+                "Skype Historian", MessageBoxButton.YesNo,
+                MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                Process.Start(new ProcessStartInfo(
+                    ResourceManager.GetString("MainWindowWebsite")));
+            }
         }
     }
 }   

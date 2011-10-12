@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Backup" xml:space="preserve">
-    <value />
-  </data>
   <data name="ChatsExported" xml:space="preserve">
     <value>{0} чатов из {1} экспортировано</value>
   </data>
@@ -173,6 +170,9 @@
   </data>
   <data name="MainWindowNext" xml:space="preserve">
     <value>Далее</value>
+  </data>
+  <data name="MainWindowUpdateAvailable" xml:space="preserve">
+    <value>Вышла новая версия Skype Historian. Хотите ли вы перейти на сайт для скачивания?</value>
   </data>
   <data name="MainWindowWebsite" xml:space="preserve">
     <value>http://eigenein.github.com/skype-historian-website/ru/</value>

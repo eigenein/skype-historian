@@ -223,6 +223,15 @@ namespace SkypeHistorian.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The new version of Skype Historian is released. Would you like to go to the website to download the latest version?.
+        /// </summary>
+        public static string MainWindowUpdateAvailable {
+            get {
+                return ResourceManager.GetString("MainWindowUpdateAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to http://eigenein.github.com/skype-historian-website/.
         /// </summary>
         public static string MainWindowWebsite {

@@ -36,6 +36,7 @@ $nextVersion = $nextVersionObject.ToString()
 Write-Output "Updating to ${nextVersion}"
 Set-Version 'Skype Historian\Properties\AssemblyInfo.cs' $nextVersion
 Set-Installer-Version 'Skype Historian.iss' $nextVersion
+echo $nextVersion | Out-File -Encoding ASCII '..\Installers\latest-version.txt'
 Write-Output 'Building Skype Historian ...'
 C:\Windows\Microsoft.NET\Framework\v3.5\MSBuild 'Skype Historian.sln' /t:Rebuild /p:Configuration=Release /p:PlatformToolset=v90
 if ($LastExitCode -ne 0)

@@ -171,6 +171,9 @@
   <data name="MainWindowNext" xml:space="preserve">
     <value>Next</value>
   </data>
+  <data name="MainWindowUpdateAvailable" xml:space="preserve">
+    <value>The new version of Skype Historian is released. Would you like to go to the website to download the latest version?</value>
+  </data>
   <data name="MainWindowWebsite" xml:space="preserve">
     <value>http://eigenein.github.com/skype-historian-website/</value>
   </data>

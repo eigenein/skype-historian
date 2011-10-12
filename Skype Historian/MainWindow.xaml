@@ -6,7 +6,8 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize"
         Icon="/Skype%20Historian;component/Skype%20Historian.ico"
-        Closing="WindowClosing">
+        Closing="WindowClosing"
+        Loaded="WindowLoaded">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
