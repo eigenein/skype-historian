@@ -141,7 +141,7 @@ namespace SkypeHistorian.Controls.Pages
 
         private static string GetDefaultPathName()
         {
-            return String.Format("Backup {0:MMMM-d-yyyy-HH-mm-ss}",
+            return String.Format("Skype {0:MMM-d-yyyy-HH-mm-ss}",
                 DateTime.Now);
         }
 
