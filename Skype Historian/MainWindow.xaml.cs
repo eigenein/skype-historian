@@ -189,6 +189,9 @@ namespace SkypeHistorian
             }
         }
 
+        /// <summary>
+        /// Asks the user for the confirmation to go to the website.
+        /// </summary>
         private void AskForGoingToUpdate()
         {
             if (Microsoft.Windows.Controls.MessageBox.Show(this,
