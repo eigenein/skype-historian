@@ -232,7 +232,7 @@ namespace SkypeHistorian.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://eigenein.github.com/skype-historian-website/.
+        ///   Looks up a localized string similar to http://eigenein.info/skype-historian/.
         /// </summary>
         public static string MainWindowWebsite {
             get {
