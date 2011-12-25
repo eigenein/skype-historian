@@ -45,11 +45,16 @@ if ($LastExitCode -ne 0)
 }
 else
 {
+    Write-Output 'Signing ...'
+    & 'C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin\signtool' sign /f c:\users\eigenein\Documents\Keys\p.perestoronin.pfx 'Skype Historian\bin\Release\Skype Historian.exe'
     Write-Output 'Building Installer ...'
     rm '..\Installers\*.exe'
     & 'C:\Program Files (x86)\Inno Setup 5\iscc' 'Skype Historian.iss'
     if ($LastExitCode -eq 0)
     {
+        Write-Output 'Signing the installer ...'
+        & 'C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin\signtool' sign /f c:\users\eigenein\Documents\Keys\p.perestoronin.pfx '..\Installers\Setup.exe'
+        Write-Output 'Finishing ...'
         Move-Item '..\Installers\Setup.exe' "..\Installers\Skype Historian ${nextVersion} Setup.exe" -Force
     }
     else
