@@ -177,8 +177,11 @@
   <data name="MainWindowWebsite" xml:space="preserve">
     <value>http://eigenein.info/skype-historian/</value>
   </data>
-  <data name="MessagesExported" xml:space="preserve">
-    <value>{0} сообщений экспортировано</value>
+  <data name="MessagesProcessed" xml:space="preserve">
+    <value>обработано {0} сообщений</value>
+  </data>
+  <data name="OutputTypePageAnd" xml:space="preserve">
+    <value>и</value>
   </data>
   <data name="OutputTypePageByMembers" xml:space="preserve">
     <value>По собеседникам</value>
@@ -197,6 +200,12 @@
   </data>
   <data name="OutputTypePageCompress" xml:space="preserve">
     <value>Сжимать данные, чтобы уменьшить их размер</value>
+  </data>
+  <data name="OutputTypePageDateFilterError" xml:space="preserve">
+    <value>Укажите, пожалуйста, дату.</value>
+  </data>
+  <data name="OutputTypePageDateFilterTitle" xml:space="preserve">
+    <value>Сообщения между</value>
   </data>
   <data name="OutputTypePageFolderBrowserTitle" xml:space="preserve">
     <value>Выберите папку, в которую нужно сохранить экспортированные данные:</value>

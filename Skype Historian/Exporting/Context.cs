@@ -53,7 +53,9 @@ namespace SkypeHistorian.Exporting
 
         public int TotalMessagesCount { get; set; }
 
-        public int ExportedMessagesCount { get; set; }
+        public int ProcessedMessagesCount { get; set; }
+
+        public int DateFilterSkippedCount { get; set; }
 
         public OutputWriter OutputWriter { get; set; }
 
@@ -65,6 +67,15 @@ namespace SkypeHistorian.Exporting
         /// Whether to use nicknames instead of fullnames.
         /// </summary>
         public bool UseNicknames { get; set; }
+
+        /// <summary>
+        /// Whether to export only messages within the specified dates.
+        /// </summary>
+        public bool UseDateFilter { get; set; }
+
+        public DateTime DateFilterStartDate { get; set; }
+
+        public DateTime DateFilterEndDate { get; set; }
 
         #endregion
     }

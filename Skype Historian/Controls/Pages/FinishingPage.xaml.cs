@@ -25,7 +25,7 @@ namespace SkypeHistorian.Controls.Pages
             };
 
         private string chatsExportedString;
-        private string messagesExportedString;
+        private string messagesProcessedString;
 
         public FinishingPage()
             : this(null)
@@ -78,9 +78,9 @@ namespace SkypeHistorian.Controls.Pages
             chatsExportedLabel.Content = String.Format(
                 chatsExportedString, Context.ExportedChatCount, Context.ChatCount);
             messagesExportedLabel.Content = String.Format(
-                messagesExportedString, Context.ExportedMessagesCount);
+                messagesProcessedString, Context.ProcessedMessagesCount);
             showExportedCheckBox.IsChecked = Context.StatusCode == StatusCode.Finished;
-            showExportedCheckBox.IsEnabled = Context.ExportedMessagesCount > 0;
+            showExportedCheckBox.IsEnabled = Context.ProcessedMessagesCount > 0;
             startAgainCheckBox.IsChecked = Context.StatusCode != StatusCode.Finished;
 
             NativeMethods.MakeTheTaskbarBlinkMyApplication();
@@ -90,8 +90,8 @@ namespace SkypeHistorian.Controls.Pages
         {
             chatsExportedString = Context.ResourceManager.GetString(
                 "ChatsExported");
-            messagesExportedString = Context.ResourceManager.GetString(
-                "MessagesExported");
+            messagesProcessedString = Context.ResourceManager.GetString(
+                "MessagesProcessed");
             showExportedCheckBox.Content = Context.ResourceManager.GetString(
                 "FinishingPageShowExported");
             startAgainCheckBox.Content = Context.ResourceManager.GetString(

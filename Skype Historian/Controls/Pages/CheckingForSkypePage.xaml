@@ -13,7 +13,8 @@
         </Grid.RowDefinitions>
         <Label Grid.Row="0">
             <TextBlock x:Name="noteLabel" x:FieldModifier="private"
-                       TextWrapping="Wrap">
+                       TextWrapping="Wrap"
+                       LineHeight="20">
                 noteLabel
             </TextBlock>
         </Label>

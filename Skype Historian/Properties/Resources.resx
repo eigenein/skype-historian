@@ -177,8 +177,11 @@
   <data name="MainWindowWebsite" xml:space="preserve">
     <value>http://eigenein.info/skype-historian/</value>
   </data>
-  <data name="MessagesExported" xml:space="preserve">
-    <value>{0} messages exported</value>
+  <data name="MessagesProcessed" xml:space="preserve">
+    <value>{0} messages processed</value>
+  </data>
+  <data name="OutputTypePageAnd" xml:space="preserve">
+    <value>and</value>
   </data>
   <data name="OutputTypePageByMembers" xml:space="preserve">
     <value>By members</value>
@@ -197,6 +200,12 @@
   </data>
   <data name="OutputTypePageCompress" xml:space="preserve">
     <value>Compress exported data</value>
+  </data>
+  <data name="OutputTypePageDateFilterError" xml:space="preserve">
+    <value>You haven't specified one or both dates within the date filter. Please, specify the date.</value>
+  </data>
+  <data name="OutputTypePageDateFilterTitle" xml:space="preserve">
+    <value>Only messages between</value>
   </data>
   <data name="OutputTypePageFolderBrowserTitle" xml:space="preserve">
     <value>Select a folder to export to:</value>

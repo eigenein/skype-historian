@@ -241,11 +241,20 @@ namespace SkypeHistorian.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} messages exported.
+        ///   Looks up a localized string similar to {0} messages processed.
         /// </summary>
-        public static string MessagesExported {
+        public static string MessagesProcessed {
             get {
-                return ResourceManager.GetString("MessagesExported", resourceCulture);
+                return ResourceManager.GetString("MessagesProcessed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to and.
+        /// </summary>
+        public static string OutputTypePageAnd {
+            get {
+                return ResourceManager.GetString("OutputTypePageAnd", resourceCulture);
             }
         }
         
@@ -300,6 +309,24 @@ namespace SkypeHistorian.Properties {
         public static string OutputTypePageCompress {
             get {
                 return ResourceManager.GetString("OutputTypePageCompress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You haven&apos;t specified one or both dates within the date filter. Please, specify the date..
+        /// </summary>
+        public static string OutputTypePageDateFilterError {
+            get {
+                return ResourceManager.GetString("OutputTypePageDateFilterError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Only messages between.
+        /// </summary>
+        public static string OutputTypePageDateFilterTitle {
+            get {
+                return ResourceManager.GetString("OutputTypePageDateFilterTitle", resourceCulture);
             }
         }
         

@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows;
 using System.Windows.Forms;
+using Microsoft.Windows.Controls;
 using NLog;
 using SkypeHistorian.Exporting;
+using MessageBox = Microsoft.Windows.Controls.MessageBox;
 using RadioButton = System.Windows.Controls.RadioButton;
-using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
 
 namespace SkypeHistorian.Controls.Pages
 {
@@ -15,8 +17,7 @@ namespace SkypeHistorian.Controls.Pages
     /// </summary>
     public partial class OutputTypePage : AbstractPage
     {
-        private readonly Dictionary<RadioButton, OutputType>
-            controlToOutputTypeCache;
+        private readonly Dictionary<RadioButton, OutputType> controlToOutputTypeCache;
 
         private static readonly GroupingStrategyType[] IndexToStrategyCache =
             new GroupingStrategyType[]
@@ -27,8 +28,7 @@ namespace SkypeHistorian.Controls.Pages
                 GroupingStrategyType.ByMonthThenByDayThenThenByMembers
             };
 
-        private static readonly Logger Logger =
-            LogManager.GetCurrentClassLogger();
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         public OutputTypePage()
             : this(null)
@@ -73,6 +73,10 @@ namespace SkypeHistorian.Controls.Pages
                 "OutputTypePageByMonthThenByDayThenByMembers");
             useNicknamesCheckBox.Content = Context.ResourceManager.GetString(
                 "OutputTypePageUseNicknames");
+            dateFilterCheckBox.Content = Context.ResourceManager.GetString(
+                "OutputTypePageDateFilterTitle");
+            andLabel.Content = Context.ResourceManager.GetString(
+                "OutputTypePageAnd");
         }
 
         public override string Category
@@ -109,6 +113,9 @@ namespace SkypeHistorian.Controls.Pages
         public override void Initialize()
         {
             Logger.Info("{0} is initializing", Id);
+
+            dateFilter1.SelectedDate = DateTime.Now.AddMonths(-1);
+            dateFilter2.SelectedDate = DateTime.Now;
         }
 
         public override bool OnNext()
@@ -130,6 +137,16 @@ namespace SkypeHistorian.Controls.Pages
                 outputType, storage);
             Context.GroupingStrategy = CreateGroupingStrategy();
             Context.UseNicknames = useNicknamesCheckBox.IsChecked == true;
+            Context.UseDateFilter = dateFilterCheckBox.IsChecked == true;
+            if (Context.UseDateFilter)
+            {
+                if (!SetDateFilter())
+                {
+                    Logger.Info("Invalid date filter: filter1 is {0}, filter2 is {1}",
+                        dateFilter1.SelectedDate, dateFilter2.SelectedDate);
+                    return false;
+                }
+            }
             return true;
         }
 
@@ -137,6 +154,43 @@ namespace SkypeHistorian.Controls.Pages
         {
             return GroupingStrategyFactory.Create(
                 IndexToStrategyCache[groupComboBox.SelectedIndex]);
+        }
+
+        private bool SetDateFilter()
+        {
+            if (!CheckDateFilter())
+            {
+                return false;
+            }
+            DateTime date1 = (DateTime)dateFilter1.SelectedDate;
+            DateTime date2 = (DateTime)dateFilter2.SelectedDate;
+            if (date1 <= date2)
+            {
+                Context.DateFilterStartDate = date1.Date;
+                Context.DateFilterEndDate = date2.Date.AddDays(1);
+            }
+            else
+            {
+                Context.DateFilterStartDate = date2.Date;
+                Context.DateFilterEndDate = date1.Date.AddDays(1);
+            }
+            Logger.Info("Using date filter: from {0} to {1}",
+                Context.DateFilterStartDate, Context.DateFilterEndDate);
+            return true;
+        }
+
+        private bool CheckDateFilter()
+        {
+            DatePicker[] controls = new[] { dateFilter1, dateFilter2 };
+            foreach (DatePicker control in controls.Where(control => control.SelectedDate == null))
+            {
+                control.Focus();
+                MessageBox.Show(Context.WindowOwner, Context.ResourceManager.GetString(
+                    "OutputTypePageDateFilterError"), "Skype Historian",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            return true;
         }
 
         private static string GetDefaultPathName()
@@ -162,6 +216,11 @@ namespace SkypeHistorian.Controls.Pages
                 return true;
             }
             return false;
+        }
+
+        private void DateFilterCheckBoxChecked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            dateFilter1.IsEnabled = dateFilter2.IsEnabled = dateFilterCheckBox.IsChecked == true;
         }
     }
 }

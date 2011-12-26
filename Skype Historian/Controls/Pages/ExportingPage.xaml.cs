@@ -21,7 +21,7 @@ namespace SkypeHistorian.Controls.Pages
         private readonly Action exportAction;
 
         private string chatsExportedString;
-        private string messagesExportedString;
+        private string messagesProcessedString;
         private string exportingPageClosingString;
         private string waitingForSkypeString;
 
@@ -47,8 +47,8 @@ namespace SkypeHistorian.Controls.Pages
                 "ExportingPageNote2");
             chatsExportedString = Context.ResourceManager.GetString(
                 "ChatsExported");
-            messagesExportedString = Context.ResourceManager.GetString(
-                "MessagesExported");
+            messagesProcessedString = Context.ResourceManager.GetString(
+                "MessagesProcessed");
             exportingPageClosingString = Context.ResourceManager.GetString(
                 "ExportingPageClosing");
             waitingForSkypeString = Context.ResourceManager.GetString(
@@ -97,7 +97,7 @@ namespace SkypeHistorian.Controls.Pages
             {
                 Dispatcher.Invoke(new Action(
                     () => bottomInfoLabel.Content = String.Format(
-                        messagesExportedString, 0)));
+                        messagesProcessedString, 0)));
                 Dispatcher.Invoke(new Action(
                     () => progressBar.Maximum = Context.ChatCount));
                 while (true)
@@ -129,6 +129,7 @@ namespace SkypeHistorian.Controls.Pages
                     {
                         break;
                     }
+                    Logger.Info("Date filter skipped count: {0}", Context.DateFilterSkippedCount);
                 }
             }
 
@@ -139,7 +140,7 @@ namespace SkypeHistorian.Controls.Pages
             Context.OutputWriter.Storage.CloseProgressChanged += StorageCloseProgressChanged;
             Context.OutputWriter.Close();
             Logger.Info("{0} messages of {1} are exported.",
-                Context.ExportedMessagesCount, Context.TotalMessagesCount);
+                Context.ProcessedMessagesCount, Context.TotalMessagesCount);
             Logger.Info("{0} chats of {1} are exported.",
                 Context.ExportedChatCount, Context.ChatCount);
             if (Context.StatusCode == StatusCode.NoError)
@@ -218,21 +219,26 @@ namespace SkypeHistorian.Controls.Pages
                     Context.StatusCode = StatusCode.SkypeCannotGetMessageTimeStamp;
                     break;
                 }
-                string chatPath = 
-                    Context.GroupingStrategy.GetChatPathForMessage(members, messageTimeStamp);
-                if (Context.OutputWriter.StoreMessage(chatPath, chat, message))
+                if (!Context.UseDateFilter ||
+                    (Context.DateFilterStartDate <= messageTimeStamp && Context.DateFilterEndDate > messageTimeStamp))
                 {
-                    Context.ExportedMessagesCount += 1;
-                    Dispatcher.Invoke(new Action(
-                        () => bottomInfoLabel.Content = String.Format(
-                            messagesExportedString,
-                            Context.ExportedMessagesCount)));
+                    string chatPath = Context.GroupingStrategy.GetChatPathForMessage(
+                        members, messageTimeStamp);
+                    if (!Context.OutputWriter.StoreMessage(chatPath, chat, message))
+                    {
+                        Context.StatusCode = StatusCode.MessageStoringFailed;
+                        break;
+                    }
                 }
                 else
                 {
-                    Context.StatusCode = StatusCode.MessageStoringFailed;
-                    break;
+                    Context.DateFilterSkippedCount += 1;
                 }
+                Context.ProcessedMessagesCount += 1;
+                Dispatcher.Invoke(new Action(
+                        () => bottomInfoLabel.Content = String.Format(
+                            messagesProcessedString,
+                            Context.ProcessedMessagesCount)));
             }
             return true;
         }
