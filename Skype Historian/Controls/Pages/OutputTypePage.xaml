@@ -42,14 +42,14 @@
                          HorizontalContentAlignment="Stretch">
                 <!-- TODO: Make all the same -->
                 <DockPanel HorizontalAlignment="Stretch">
-                    <TextBlock FontSize="16" Margin="8,0,0,0"
+                    <TextBlock FontSize="14" Margin="8,0,0,0"
                                DockPanel.Dock="Left"
                                x:Name="textFilesLabel"
                                x:FieldModifier="private">
                         textFilesLabel
                     </TextBlock>
                     <TextBlock FontStyle="Italic"
-                               FontSize="16"
+                               FontSize="14"
                                HorizontalAlignment="Right"
                                x:Name="chooseThisNote"
                                x:FieldModifier="private">
@@ -62,21 +62,21 @@
                          Margin="2"
                          x:Name="jsonRadioButton"
                          x:FieldModifier="private">
-                <TextBlock FontSize="16" Margin="8,0,0,0">JSON</TextBlock>
+                <TextBlock FontSize="14" Margin="8,0,0,0">JSON</TextBlock>
             </RadioButton>
             <RadioButton GroupName="OutputType"
                          Grid.Row="3"
                          Margin="2"
                          x:Name="csvRadioButton"
                          x:FieldModifier="private">
-                <TextBlock FontSize="16" Margin="8,0,0,0">CSV</TextBlock>
+                <TextBlock FontSize="14" Margin="8,0,0,0">CSV</TextBlock>
             </RadioButton>
             <RadioButton GroupName="OutputType"
                          Grid.Row="4"
                          Margin="2"
                          x:Name="xmlRadioButton"
                          x:FieldModifier="private">
-                <TextBlock FontSize="16" Margin="8,0,0,0">XML</TextBlock>
+                <TextBlock FontSize="14" Margin="8,0,0,0">XML</TextBlock>
             </RadioButton>
         </Grid>
         <StackPanel Grid.Row="3" Margin="4,8,4,0" Orientation="Horizontal" Grid.ColumnSpan="2">
