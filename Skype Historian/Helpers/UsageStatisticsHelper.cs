@@ -14,12 +14,34 @@ namespace SkypeHistorian.Helpers
         public static void Send()
         {
             Logger.Info("Sending usage statistics ...");
+            string url = BuildUrl();
+            WebClient client = new WebClient();
+            try
+            {
+                Logger.Info("GA url: {0}", url);
+                byte[] response = client.DownloadData(url);
+                Logger.Info("GA response {0}", response.Take(6).SequenceEqual(
+                    Encoding.ASCII.GetBytes("GIF89a")) ? "Ok" : "failed");
+            }
+            catch (Exception ex)
+            {
+                Logger.Warn(ex.Message);
+            }
+            Properties.Settings.Default.GaLastVisit = DateTime.Now;
+            Properties.Settings.Default.VisitCount += 1;
+            Properties.Settings.Default.Save();
+        }
 
+        private static string BuildUrl()
+        {
             const string utmac = "UA-28081528-1";
             const string utmhn = "eigenein.github.com";
             int utmn = RandomExtensions.Instance.Next(1000000000, Int32.MaxValue);
             int random = RandomExtensions.Instance.Next(1000000000, Int32.MaxValue);
-            long today = DateTime.Now.Ticks;
+            long today = DateTime.Now.GetUnixTime();
+            long firstVisit = Properties.Settings.Default.GaFirstVisit.GetUnixTime();
+            long lastVisit = Properties.Settings.Default.GaLastVisit.GetUnixTime();
+            int visitCount = Properties.Settings.Default.VisitCount;
             const string referer = "http://eigenein.github.com/skype-historian/app/referer";
             const string uservar = "-";
             const string utmp = "http://eigenein.github.com/skype-historian/app/usage";
@@ -32,20 +54,10 @@ namespace SkypeHistorian.Helpers
             urlBuilder.AppendFormat("&utmp={0}", utmp);
             urlBuilder.AppendFormat("&utmac={0}", utmac);
             urlBuilder.AppendFormat(
-                "&utmcc=__utma%3D{0}.{1}.{2}.{2}.{2}.2%3B%2B__utmb%3D{0}%3B%2B__utmc%3D{0}%3B%2B__utmz%3D{0}.{2}.2.2.utmccn%3D(direct)%7Cutmcsr%3D(direct)%7Cutmcmd%3D(none)%3B%2B__utmv%3D{2}.{3}%3B",
-                GaCookie, random, today, uservar);
+                "&utmcc=__utma%3D{0}.{1}.{4}.{5}.{2}.{6}%3B%2B__utmb%3D{0}%3B%2B__utmc%3D{0}%3B%2B__utmz%3D{0}.{2}.2.2.utmccn%3D(direct)%7Cutmcsr%3D(direct)%7Cutmcmd%3D(none)%3B%2B__utmv%3D{2}.{3}%3B",
+                GaCookie, random, today, uservar, firstVisit, lastVisit, visitCount);
 
-            WebClient client = new WebClient();
-            try
-            {
-                byte[] response = client.DownloadData(urlBuilder.ToString());
-                Logger.Info("GA response {0}", response.Take(6).SequenceEqual(
-                    Encoding.ASCII.GetBytes("GIF89a")) ? "Ok" : "failed");
-            }
-            catch (Exception ex)
-            {
-                Logger.Warn(ex.Message);
-            }
+            return urlBuilder.ToString();
         }
 
         private static int GaCookie

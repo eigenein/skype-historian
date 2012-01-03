@@ -34,5 +34,41 @@ namespace SkypeHistorian.Properties {
                 this["GaCookie"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("01/03/2012 23:02:00")]
+        public global::System.DateTime GaFirstVisit {
+            get {
+                return ((global::System.DateTime)(this["GaFirstVisit"]));
+            }
+            set {
+                this["GaFirstVisit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("01/03/2012 23:03:00")]
+        public global::System.DateTime GaLastVisit {
+            get {
+                return ((global::System.DateTime)(this["GaLastVisit"]));
+            }
+            set {
+                this["GaLastVisit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int VisitCount {
+            get {
+                return ((int)(this["VisitCount"]));
+            }
+            set {
+                this["VisitCount"] = value;
+            }
+        }
     }
 }

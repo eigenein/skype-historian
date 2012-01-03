@@ -5,5 +5,14 @@
     <Setting Name="GaCookie" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="GaFirstVisit" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">01/03/2012 23:02:00</Value>
+    </Setting>
+    <Setting Name="GaLastVisit" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">01/03/2012 23:03:00</Value>
+    </Setting>
+    <Setting Name="VisitCount" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
