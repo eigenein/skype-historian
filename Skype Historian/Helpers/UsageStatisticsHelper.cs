@@ -42,9 +42,9 @@ namespace SkypeHistorian.Helpers
             long firstVisit = Properties.Settings.Default.GaFirstVisit.GetUnixTime();
             long lastVisit = Properties.Settings.Default.GaLastVisit.GetUnixTime();
             int visitCount = Properties.Settings.Default.VisitCount;
-            const string referer = "http://eigenein.github.com/skype-historian/app/referer";
+            const string referer = "skype-historian/app/referer";
             const string uservar = "-";
-            const string utmp = "http://eigenein.github.com/skype-historian/app/usage";
+            const string utmp = "skype-historian/app/usage";
 
             StringBuilder urlBuilder = new StringBuilder("http://www.google-analytics.com/__utm.gif?utmwv=1");
             urlBuilder.AppendFormat("&utmn={0}", utmn);
