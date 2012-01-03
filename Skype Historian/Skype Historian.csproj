@@ -165,8 +165,10 @@
     <Compile Include="Helpers\JsonTextWriterExtensions.cs" />
     <Compile Include="Helpers\NativeMethods.cs" />
     <Compile Include="Helpers\PathExtensions.cs" />
+    <Compile Include="Helpers\RandomExtensions.cs" />
     <Compile Include="Helpers\SafeInvoker.cs" />
     <Compile Include="Helpers\UpdatesChecker.cs" />
+    <Compile Include="Helpers\UsageStatisticsHelper.cs" />
     <Compile Include="Helpers\XmlTextWriterExtensions.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
