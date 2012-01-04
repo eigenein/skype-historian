@@ -61,6 +61,15 @@ namespace SkypeHistorian.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Skype Historian is already running. If you think it&apos;s not so, please, drop a message to skypehistorian@shortmail.com.
+        /// </summary>
+        public static string AppAlreadyRunning {
+            get {
+                return ResourceManager.GetString("AppAlreadyRunning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} chats of {1} exported.
         /// </summary>
         public static string ChatsExported {

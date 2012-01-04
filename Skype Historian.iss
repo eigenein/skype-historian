@@ -1,6 +1,7 @@
 ﻿[Setup]
 AppName=Skype Historian
-AppVersion=0.3.52.0
+AppVersion=0.3.54.0
+AppMutex=DCFF433C-AA29-4ED0-9F12-B9C143800299
 DefaultDirName={localappdata}\Skype Historian
 DefaultGroupName=Skype Historian
 AllowNoIcons=no
@@ -15,7 +16,7 @@ SolidCompression=yes
 SetupIconFile=SetupIconFile.ico
 UninstallDisplayIcon="{app}\Skype Historian.exe"
 UninstallDisplayName=Skype Historian
-VersionInfoVersion=0.3.52.0
+VersionInfoVersion=0.3.54.0
 WizardImageFile=compiler:WizModernImage-IS.bmp
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 

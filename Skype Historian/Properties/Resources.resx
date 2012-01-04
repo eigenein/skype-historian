@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppAlreadyRunning" xml:space="preserve">
+    <value>Skype Historian is already running. If you think it's not so, please, drop a message to skypehistorian@shortmail.com</value>
+  </data>
   <data name="ChatsExported" xml:space="preserve">
     <value>{0} chats of {1} exported</value>
   </data>
