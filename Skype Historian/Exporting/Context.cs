@@ -49,6 +49,8 @@ namespace SkypeHistorian.Exporting
 
         public int ChatCount { get; set; }
 
+        public int MessagesCount { get; set; }
+
         public int ExportedChatCount { get; set; }
 
         public int TotalMessagesCount { get; set; }

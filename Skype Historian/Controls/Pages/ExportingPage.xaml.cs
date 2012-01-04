@@ -99,7 +99,7 @@ namespace SkypeHistorian.Controls.Pages
                     () => bottomInfoLabel.Content = String.Format(
                         messagesProcessedString, 0)));
                 Dispatcher.Invoke(new Action(
-                    () => progressBar.Maximum = Context.ChatCount));
+                    () => progressBar.Maximum = Context.MessagesCount));
                 while (true)
                 {
                     IChat chat;
@@ -118,8 +118,6 @@ namespace SkypeHistorian.Controls.Pages
                     if (ExportChat(chat))
                     {
                         Context.ExportedChatCount += 1;
-                        Dispatcher.Invoke(new Action(
-                            () => progressBar.Value = Context.ExportedChatCount));
                         Dispatcher.Invoke(new Action(
                             () => topInfoLabel.Content = String.Format(
                                 chatsExportedString,
@@ -177,7 +175,13 @@ namespace SkypeHistorian.Controls.Pages
                 return false;
             }
             Context.ChatCount = chatCount;
-            Logger.Info("{0} chat(s) found.", chatCount);
+            int messagesCount;
+            if (!SafeInvoker.Invoke(() => Context.Skype.Messages.Count, out messagesCount))
+            {
+                return false;
+            }
+            Context.MessagesCount = messagesCount;
+            Logger.Info("{0} chat(s) and {1} messages found.", chatCount, messagesCount);
             return SafeInvoker.Invoke(chatCollection.GetEnumerator,
                 out enumerator);
         }
@@ -235,10 +239,10 @@ namespace SkypeHistorian.Controls.Pages
                     Context.DateFilterSkippedCount += 1;
                 }
                 Context.ProcessedMessagesCount += 1;
-                Dispatcher.Invoke(new Action(
-                        () => bottomInfoLabel.Content = String.Format(
-                            messagesProcessedString,
-                            Context.ProcessedMessagesCount)));
+                Dispatcher.Invoke(new Action(() => bottomInfoLabel.Content = String.Format(
+                    messagesProcessedString,
+                    Context.ProcessedMessagesCount)));
+                Dispatcher.Invoke(new Action(() => progressBar.Value = Context.ProcessedMessagesCount));
             }
             return true;
         }
