@@ -55,7 +55,7 @@ else
         Write-Output 'Signing the installer ...'
         & 'C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin\signtool' sign /f c:\users\eigenein\Documents\Keys\p.perestoronin.pfx '..\Installers\Setup.exe'
         Write-Output 'Finishing ...'
-        Move-Item '..\Installers\Setup.exe' "..\Installers\Skype Historian ${nextVersion} Setup.exe" -Force
+        Move-Item '..\Installers\Setup.exe' "..\Installers\Skype_Historian_${nextVersion}_Setup.exe" -Force
     }
     else
     {
