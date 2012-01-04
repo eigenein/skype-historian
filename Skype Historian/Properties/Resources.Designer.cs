@@ -169,6 +169,15 @@ namespace SkypeHistorian.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Support this program on Flattr!.
+        /// </summary>
+        public static string MainWindowFlattr {
+            get {
+                return ResourceManager.GetString("MainWindowFlattr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exporting.
         /// </summary>
         public static string MainWindowLeftBarExporting {

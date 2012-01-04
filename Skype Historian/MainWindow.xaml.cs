@@ -87,6 +87,8 @@ namespace SkypeHistorian
                 "MainWindowLeftBarFinishing");
             confirmCloseString = ResourceManager.GetString(
                 "MainWindowConfirmClose");
+            flattrImage.ToolTip = ResourceManager.GetString(
+                "MainWindowFlattr");
             websiteHyperlink.NavigateUri = new Uri(ResourceManager.GetString(
                 "MainWindowWebsite"));
             websiteHyperlink.ToolTip = websiteHyperlink.NavigateUri.ToString();
@@ -204,6 +206,11 @@ namespace SkypeHistorian
                 Process.Start(new ProcessStartInfo(
                     ResourceManager.GetString("MainWindowWebsite")));
             }
+        }
+
+        private void FlattrImageMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo("http://flattr.com/thing/404856/Skype-Historian"));
         }
     }
 }   

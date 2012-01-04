@@ -5,4 +5,5 @@
     <BitmapImage x:Key="finishingImage" UriSource="Images/Finishing.png"/>
     <BitmapImage x:Key="skypeImage" UriSource="Images/Skype.png"/>
     <BitmapImage x:Key="homeImage" UriSource="Images/Home.png"/>
+    <BitmapImage x:Key="flattrImage" UriSource="Images/Flattr.png"/>
 </ResourceDictionary>

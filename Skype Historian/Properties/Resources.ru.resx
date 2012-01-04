@@ -153,6 +153,9 @@
   <data name="MainWindowFinish" xml:space="preserve">
     <value>Завершить</value>
   </data>
+  <data name="MainWindowFlattr" xml:space="preserve">
+    <value>Поддержать разработку этой программы на сервисе Flattr</value>
+  </data>
   <data name="MainWindowLeftBarExporting" xml:space="preserve">
     <value>Экспорт</value>
   </data>

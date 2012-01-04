@@ -73,6 +73,13 @@
             <StackPanel Orientation="Vertical" 
                         DockPanel.Dock="Bottom"
                         Margin="16,8,8,8">
+                <Image Source="{StaticResource flattrImage}"
+                       Stretch="None"
+                       Margin="12,0,0,20"
+                       HorizontalAlignment="Left"
+                       Cursor="Hand"
+                       x:Name="flattrImage"
+                       x:FieldModifier="private" MouseLeftButtonUp="FlattrImageMouseLeftButtonUp" />
                 <TextBlock Margin="12,0,0,0">
                     <Hyperlink NavigateUri="http://eigenein.github.com/skype-historian-website/"
                                Foreground="#003399"
