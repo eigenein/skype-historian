@@ -83,7 +83,7 @@
                     </Hyperlink>
                 </TextBlock>
                 <TextBlock Margin="12,4,0,8" Foreground="#003399">
-                    Pavel Perestoronin © 2011
+                    Pavel Perestoronin © 2012
                 </TextBlock>
             </StackPanel>
         </DockPanel>
