@@ -126,6 +126,8 @@ namespace SkypeHistorian.Controls.Pages
             string feedbackText = feedbackTextBox.Text.Trim();
             if (feedbackText.Length == 0)
             {
+                Logger.Info("No feedback provided. Quitting.");
+                Application.Current.Shutdown();
                 return;
             }
             Logger.Info("Sending the feedback ...", feedbackText.Length);
@@ -153,9 +155,8 @@ namespace SkypeHistorian.Controls.Pages
             {
                 Logger.Warn(e.Error.ToString());
             }
-            Logger.Info("Feedback sending completed.");
+            Logger.Info("Feedback sending completed. Quitting.");
             busyIndicator.IsBusy = false;
-            Logger.Info("Quitting.");
             Application.Current.Shutdown();
         }
     }
