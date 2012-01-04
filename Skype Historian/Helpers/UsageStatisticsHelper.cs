@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using NLog;
 
 namespace SkypeHistorian.Helpers
@@ -17,6 +18,7 @@ namespace SkypeHistorian.Helpers
             string url = BuildUrl();
             WebClient client = new WebClient();
             client.Headers["User-Agent"] = String.Format("Skype Historian/{0}", App.Version);
+            client.Headers["Accept-Language"] = Thread.CurrentThread.CurrentUICulture.Name;
             try
             {
                 Logger.Info("GA url: {0}", url);
