@@ -147,6 +147,7 @@ namespace SkypeHistorian
             }
             else if (pagesControl.ActivePage.NextButton == ButtonType.Finish)
             {
+                nextButton.IsEnabled = false;
                 pagesControl.Finish();
             }
         }

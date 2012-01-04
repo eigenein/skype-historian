@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
 using System.Windows;
 using NLog;
 using SkypeHistorian.Exporting;
@@ -96,6 +100,10 @@ namespace SkypeHistorian.Controls.Pages
                 "FinishingPageShowExported");
             startAgainCheckBox.Content = Context.ResourceManager.GetString(
                 "FinishingPageStartAgain");
+            feedbackTextBox.Watermark = Context.ResourceManager.GetString(
+                "FinishingPageFeedbackWatermark");
+            busyIndicator.BusyContent = Context.ResourceManager.GetString(
+                "FinishingPageBusyText");
         }
 
         public override void OnFinish()
@@ -110,7 +118,44 @@ namespace SkypeHistorian.Controls.Pages
                 Logger.Info("Starting the new process ...");
                 System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
             }
-            Logger.Info("Quit.");
+            HandleFeedback();
+        }
+
+        private void HandleFeedback()
+        {
+            string feedbackText = feedbackTextBox.Text.Trim();
+            if (feedbackText.Length == 0)
+            {
+                return;
+            }
+            Logger.Info("Sending the feedback ...", feedbackText.Length);
+            busyIndicator.IsBusy = true;
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+            client.SendCompleted += FeedbackSendCompleted;
+            client.EnableSsl = true;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential("skype-historian-app@tut.by", "qwe123___");
+            MailAddress from = new MailAddress("skype-historian-app@tut.by", "Skype Historian App");
+            MailAddress to = new MailAddress("skypehistorian@shortmail.com");
+            MailMessage message = new MailMessage(from, to);
+            message.Body = feedbackText;
+            message.BodyEncoding = Encoding.UTF8;
+            message.Subject = String.Format("Feedback from Skype Historian {1} / {0}",
+                Properties.Settings.Default.GaCookie, App.Version);
+            message.SubjectEncoding = Encoding.UTF8;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.SendAsync(message, null);
+        }
+
+        void FeedbackSendCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                Logger.Warn(e.Error.ToString());
+            }
+            Logger.Info("Feedback sending completed.");
+            busyIndicator.IsBusy = false;
+            Logger.Info("Quitting.");
             Application.Current.Shutdown();
         }
     }

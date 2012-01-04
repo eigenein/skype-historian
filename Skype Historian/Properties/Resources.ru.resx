@@ -138,6 +138,12 @@
   <data name="ExportingPageTitle" xml:space="preserve">
     <value>Процесс экспортирования</value>
   </data>
+  <data name="FinishingPageBusyText" xml:space="preserve">
+    <value>Отправка отзыва...</value>
+  </data>
+  <data name="FinishingPageFeedbackWatermark" xml:space="preserve">
+    <value>Хотите отправить отзыв? Напишите до 500 символов и нажмите "Завершить"</value>
+  </data>
   <data name="FinishingPageShowExported" xml:space="preserve">
     <value>Показать экспортированные данные</value>
   </data>

@@ -124,6 +124,24 @@ namespace SkypeHistorian.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sending the feedback....
+        /// </summary>
+        public static string FinishingPageBusyText {
+            get {
+                return ResourceManager.GetString("FinishingPageBusyText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Want to send a feedback? Write up to 500 characters and press Finish.
+        /// </summary>
+        public static string FinishingPageFeedbackWatermark {
+            get {
+                return ResourceManager.GetString("FinishingPageFeedbackWatermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show exported data.
         /// </summary>
         public static string FinishingPageShowExported {

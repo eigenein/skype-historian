@@ -92,7 +92,8 @@
                                  IsEnabled="False"
                                  Width="100"
                                  x:Name="dateFilter1"
-                                 x:FieldModifier="private"/>
+                                 x:FieldModifier="private"
+                                 />
             <Label x:Name="andLabel" x:FieldModifier="private">andLabel</Label>
             <Controls:DatePicker VerticalAlignment="Center"
                                  IsEnabled="False"
