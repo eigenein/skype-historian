@@ -179,8 +179,11 @@ namespace SkypeHistorian
 
         private void WindowLoaded(object sender, RoutedEventArgs e)
         {
-            checkAction.BeginInvoke(CheckUpdateAvailableCallback, null);
-            ThreadPool.QueueUserWorkItem(o => UsageStatisticsHelper.Send());
+            if (!Debugger.IsAttached)
+            {
+                checkAction.BeginInvoke(CheckUpdateAvailableCallback, null);
+                ThreadPool.QueueUserWorkItem(o => UsageStatisticsHelper.Send());
+            }
         }
 
         private void CheckUpdateAvailableCallback(IAsyncResult ar)
