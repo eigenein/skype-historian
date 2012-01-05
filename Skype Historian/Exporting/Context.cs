@@ -47,17 +47,25 @@ namespace SkypeHistorian.Exporting
 
         public Window WindowOwner { get; set; }
 
+        #region Statistics
+
         public int ChatCount { get; set; }
 
         public int MessagesCount { get; set; }
 
         public int ExportedChatCount { get; set; }
 
-        public int TotalMessagesCount { get; set; }
-
         public int ProcessedMessagesCount { get; set; }
 
         public int DateFilterSkippedCount { get; set; }
+
+        public DateTime ProgressStartedAt { get; set; }
+
+        public TimeSpan Eta { get; set; }
+
+        public DateTime EtaUpdatedAt { get; set; }
+
+        #endregion
 
         public OutputWriter OutputWriter { get; set; }
 

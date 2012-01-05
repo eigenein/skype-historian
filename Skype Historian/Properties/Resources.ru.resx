@@ -132,6 +132,9 @@
   <data name="ExportingPageClosing" xml:space="preserve">
     <value>Завершение... {0} из {1}</value>
   </data>
+  <data name="ExportingPageMessagesProcessed" xml:space="preserve">
+    <value>обработано {0} сообщений (до завершения - {1}:{2:D2})</value>
+  </data>
   <data name="ExportingPageNote1" xml:space="preserve">
     <value>Экспортирование сообщений...</value>
   </data>

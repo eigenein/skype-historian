@@ -48,7 +48,7 @@ namespace SkypeHistorian.Controls.Pages
             chatsExportedString = Context.ResourceManager.GetString(
                 "ChatsExported");
             messagesProcessedString = Context.ResourceManager.GetString(
-                "MessagesProcessed");
+                "ExportingPageMessagesProcessed");
             exportingPageClosingString = Context.ResourceManager.GetString(
                 "ExportingPageClosing");
             waitingForSkypeString = Context.ResourceManager.GetString(
@@ -95,6 +95,7 @@ namespace SkypeHistorian.Controls.Pages
             }
             else if (Context.ChatCount > 0)
             {
+                Context.ProgressStartedAt = DateTime.Now;
                 Dispatcher.Invoke(new Action(
                     () => bottomInfoLabel.Content = String.Format(
                         messagesProcessedString, 0)));
@@ -138,7 +139,7 @@ namespace SkypeHistorian.Controls.Pages
             Context.OutputWriter.Storage.CloseProgressChanged += StorageCloseProgressChanged;
             Context.OutputWriter.Close();
             Logger.Info("{0} messages of {1} are exported.",
-                Context.ProcessedMessagesCount, Context.TotalMessagesCount);
+                Context.ProcessedMessagesCount, Context.MessagesCount);
             Logger.Info("{0} chats of {1} are exported.",
                 Context.ExportedChatCount, Context.ChatCount);
             if (Context.StatusCode == StatusCode.NoError)
@@ -239,9 +240,17 @@ namespace SkypeHistorian.Controls.Pages
                     Context.DateFilterSkippedCount += 1;
                 }
                 Context.ProcessedMessagesCount += 1;
+                if ((Context.EtaUpdatedAt == DateTime.MinValue ||
+                    (DateTime.Now - Context.EtaUpdatedAt).TotalSeconds > 1.0) &&
+                    Context.ProcessedMessagesCount > 0)
+                {
+                    Context.EtaUpdatedAt = DateTime.Now;
+                    Context.Eta = new TimeSpan((Context.MessagesCount - Context.ProcessedMessagesCount) *
+                        (DateTime.Now - Context.ProgressStartedAt).Ticks / Context.ProcessedMessagesCount);
+                }
                 Dispatcher.Invoke(new Action(() => bottomInfoLabel.Content = String.Format(
-                    messagesProcessedString,
-                    Context.ProcessedMessagesCount)));
+                    messagesProcessedString, Context.ProcessedMessagesCount, 
+                    Context.Eta.Minutes, Context.Eta.Seconds)));
                 Dispatcher.Invoke(new Action(() => progressBar.Value = Context.ProcessedMessagesCount));
             }
             return true;
@@ -272,7 +281,7 @@ namespace SkypeHistorian.Controls.Pages
             return builder.ToString();
         }
 
-        private bool GetMessageCollection(IChat chat, out IEnumerator enumerator)
+        private static bool GetMessageCollection(IChat chat, out IEnumerator enumerator)
         {
             enumerator = null;
 
@@ -286,8 +295,7 @@ namespace SkypeHistorian.Controls.Pages
             {
                 return false;
             }
-            Context.TotalMessagesCount += messageCount;
-            Logger.Info("{0} messages found.", messageCount);
+            Logger.Info("{0} message(s) found in this chat.", messageCount);
             return SafeInvoker.Invoke(messageCollection.GetEnumerator,
                 out enumerator);
         }

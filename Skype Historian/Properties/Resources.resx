@@ -132,6 +132,9 @@
   <data name="ExportingPageClosing" xml:space="preserve">
     <value>Finishing... {0} of {1}</value>
   </data>
+  <data name="ExportingPageMessagesProcessed" xml:space="preserve">
+    <value>{0} messages processed ({1}:{2:D2} left to complete)</value>
+  </data>
   <data name="ExportingPageNote1" xml:space="preserve">
     <value>Skype Historian is now exporting your Skype chats...</value>
   </data>

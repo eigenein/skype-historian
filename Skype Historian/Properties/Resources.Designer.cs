@@ -106,6 +106,15 @@ namespace SkypeHistorian.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} messages processed ({1}:{2:D2} left to complete).
+        /// </summary>
+        public static string ExportingPageMessagesProcessed {
+            get {
+                return ResourceManager.GetString("ExportingPageMessagesProcessed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Skype Historian is now exporting your Skype chats....
         /// </summary>
         public static string ExportingPageNote1 {
