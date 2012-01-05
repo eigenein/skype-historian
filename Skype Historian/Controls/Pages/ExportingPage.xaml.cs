@@ -177,7 +177,11 @@ namespace SkypeHistorian.Controls.Pages
             }
             Context.ChatCount = chatCount;
             int messagesCount;
-            if (!SafeInvoker.Invoke(() => Context.Skype.Messages.Count, out messagesCount))
+            // ReSharper disable UseIndexedProperty
+            // Because indexed property fail an installer building.
+            if (!SafeInvoker.Invoke(() => Context.Skype.get_Messages(String.Empty).Count, 
+            // ReSharper restore UseIndexedProperty
+                out messagesCount))
             {
                 return false;
             }
