@@ -63,8 +63,6 @@ namespace SkypeHistorian.Exporting
 
         public TimeSpan Eta { get; set; }
 
-        public DateTime EtaUpdatedAt { get; set; }
-
         #endregion
 
         public OutputWriter OutputWriter { get; set; }

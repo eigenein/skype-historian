@@ -20,6 +20,8 @@ namespace SkypeHistorian.Controls.Pages
 
         private readonly Action exportAction;
 
+        private Timer statisticsTimer;
+
         private string chatsExportedString;
         private string messagesProcessedString;
         private string exportingPageClosingString;
@@ -76,11 +78,14 @@ namespace SkypeHistorian.Controls.Pages
         {
             Logger.Info("{0} is initializing", Id);
             exportAction.BeginInvoke(ExportCallback, null);
+            statisticsTimer = new Timer(UpdateStatistics, null, 100, 100);
         }
 
         private void ExportCallback(IAsyncResult ar)
         {
             exportAction.EndInvoke(ar);
+            statisticsTimer.Dispose();
+            statisticsTimer = null;
             Dispatcher.Invoke(new Action(() => OnPageChangeRequested("Finishing")));
         }
 
@@ -244,18 +249,6 @@ namespace SkypeHistorian.Controls.Pages
                     Context.DateFilterSkippedCount += 1;
                 }
                 Context.ProcessedMessagesCount += 1;
-                if ((Context.EtaUpdatedAt == DateTime.MinValue ||
-                    (DateTime.Now - Context.EtaUpdatedAt).TotalSeconds > 1.0) &&
-                    Context.ProcessedMessagesCount > 0)
-                {
-                    Context.EtaUpdatedAt = DateTime.Now;
-                    Context.Eta = new TimeSpan((Context.MessagesCount - Context.ProcessedMessagesCount) *
-                        (DateTime.Now - Context.ProgressStartedAt).Ticks / Context.ProcessedMessagesCount);
-                }
-                Dispatcher.Invoke(new Action(() => bottomInfoLabel.Content = String.Format(
-                    messagesProcessedString, Context.ProcessedMessagesCount, 
-                    Context.Eta.Minutes, Context.Eta.Seconds)));
-                Dispatcher.Invoke(new Action(() => progressBar.Value = Context.ProcessedMessagesCount));
             }
             return true;
         }
@@ -302,6 +295,19 @@ namespace SkypeHistorian.Controls.Pages
             Logger.Info("{0} message(s) found in this chat.", messageCount);
             return SafeInvoker.Invoke(messageCollection.GetEnumerator,
                 out enumerator);
+        }
+
+        private void UpdateStatistics(object state)
+        {
+            if (Context.ProcessedMessagesCount > 0)
+            {
+                Context.Eta = new TimeSpan((Context.MessagesCount - Context.ProcessedMessagesCount) *
+                    (DateTime.Now - Context.ProgressStartedAt).Ticks / Context.ProcessedMessagesCount);
+            }
+            Dispatcher.Invoke(new Action(() => bottomInfoLabel.Content = String.Format(
+                messagesProcessedString, Context.ProcessedMessagesCount,
+                Context.Eta.Minutes, Context.Eta.Seconds)));
+            Dispatcher.Invoke(new Action(() => progressBar.Value = Context.ProcessedMessagesCount));
         }
     }
 }
