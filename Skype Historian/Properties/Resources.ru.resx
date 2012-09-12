@@ -121,7 +121,7 @@
     <value>Skype Historian уже запущен. Если вам кажется,что это не так, сообщите об этом на skypehistorian@shortmail.com</value>
   </data>
   <data name="ChatsExported" xml:space="preserve">
-    <value>{0} чатов из {1} экспортировано</value>
+    <value>{0} чатов из {1} обработано</value>
   </data>
   <data name="CheckingForSkypePageNote" xml:space="preserve">
     <value>Во время экспорта Skype должен быть запущен. Если это не так, Skype Historian запустит его самостоятельно.</value>

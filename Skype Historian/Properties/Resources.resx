@@ -121,7 +121,7 @@
     <value>Skype Historian is already running. If you think it's not so, please, drop a message to skypehistorian@shortmail.com</value>
   </data>
   <data name="ChatsExported" xml:space="preserve">
-    <value>{0} chats of {1} exported</value>
+    <value>{0} chats of {1} processed</value>
   </data>
   <data name="CheckingForSkypePageNote" xml:space="preserve">
     <value>Skype Historian needs Skype to be started. If Skype is not started then Skype Historian will start it for you.</value>
