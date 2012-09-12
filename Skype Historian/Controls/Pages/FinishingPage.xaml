@@ -66,6 +66,8 @@
                                          Margin="0,0,0,0"
                                          MaxLength="2000"
                                          AcceptsReturn="True"
+                                         HorizontalScrollBarVisibility="Auto"
+                                         VerticalScrollBarVisibility="Auto"
                                          x:Name="feedbackTextBox"
                                          x:FieldModifier="private"/>
         </Grid>

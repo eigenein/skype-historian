@@ -168,6 +168,7 @@
     <Compile Include="Helpers\PathExtensions.cs" />
     <Compile Include="Helpers\RandomExtensions.cs" />
     <Compile Include="Helpers\SafeInvoker.cs" />
+    <Compile Include="Helpers\TextFormattingModeHelper.cs" />
     <Compile Include="Helpers\UpdatesChecker.cs" />
     <Compile Include="Helpers\UsageStatisticsHelper.cs" />
     <Compile Include="Helpers\XmlTextWriterExtensions.cs" />

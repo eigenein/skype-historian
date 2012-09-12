@@ -52,6 +52,7 @@ namespace SkypeHistorian
         public MainWindow()
         {
             Context.Instance.WindowOwner = this;
+            TextFormattingModeHelper.ApplyDisplayTextFormattingMode(this);
 
             InitializeComponent();
             InitializeLocalization();

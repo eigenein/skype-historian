@@ -103,7 +103,7 @@ namespace SkypeHistorian.Controls.Pages
                 Context.ProgressStartedAt = DateTime.Now;
                 Dispatcher.Invoke(new Action(
                     () => bottomInfoLabel.Content = String.Format(
-                        messagesProcessedString, 0)));
+                        messagesProcessedString, 0, "-", "--")));
                 Dispatcher.Invoke(new Action(
                     () => progressBar.Maximum = Context.MessagesCount));
                 while (true)
