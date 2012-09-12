@@ -148,7 +148,7 @@
     <value>Отправка отзыва...</value>
   </data>
   <data name="FinishingPageFeedbackWatermark" xml:space="preserve">
-    <value>Хотите отправить отзыв? Напишите до 500 символов и нажмите "Завершить"</value>
+    <value>Хотите отправить отзыв? Напишите до 2000 символов и нажмите "Завершить"</value>
   </data>
   <data name="FinishingPageShowExported" xml:space="preserve">
     <value>Показать экспортированные данные</value>

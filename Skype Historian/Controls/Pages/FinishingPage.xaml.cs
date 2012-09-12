@@ -138,7 +138,7 @@ namespace SkypeHistorian.Controls.Pages
             client.UseDefaultCredentials = false;
             client.Credentials = new NetworkCredential("skype-historian-app@tut.by", "qwe123___");
             MailAddress from = new MailAddress("skype-historian-app@tut.by", "Skype Historian App");
-            MailAddress to = new MailAddress("skypehistorian@shortmail.com");
+            MailAddress to = new MailAddress("skype-historian-app@tut.by");
             MailMessage message = new MailMessage(from, to);
             message.Body = feedbackText;
             message.BodyEncoding = Encoding.UTF8;

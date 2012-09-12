@@ -148,7 +148,7 @@
     <value>Sending the feedback...</value>
   </data>
   <data name="FinishingPageFeedbackWatermark" xml:space="preserve">
-    <value>Want to send a feedback? Write up to 500 characters and press Finish</value>
+    <value>Want to send a feedback? Write up to 2000 characters and press Finish</value>
   </data>
   <data name="FinishingPageShowExported" xml:space="preserve">
     <value>Show exported data</value>
