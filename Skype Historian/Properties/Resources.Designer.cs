@@ -169,6 +169,15 @@ namespace SkypeHistorian.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show log.
+        /// </summary>
+        public static string FinishingPageShowLog {
+            get {
+                return ResourceManager.GetString("FinishingPageShowLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start again.
         /// </summary>
         public static string FinishingPageStartAgain {

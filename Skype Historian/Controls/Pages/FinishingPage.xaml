@@ -17,6 +17,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
@@ -28,34 +29,43 @@
                            FontSize="14"/>
             </Label>
             <Label Grid.Row="1"
-                   x:Name="chatsExportedLabel"
+                   x:Name="exportedLabel"
                    x:FieldModifier="private"
-                   Margin="0,8,0,0">
-                chatsExportedLabel
+                   Margin="0,0,0,0"
+                   FontSize="14">
+                exportedLabel
             </Label>
-            <Label Grid.Row="2"
+            <!--<Label Grid.Row="2"
                    x:Name="messagesExportedLabel"
                    x:FieldModifier="private">
                 messagesExportedLabel
-            </Label>
-            <CheckBox Grid.Row="3" Margin="8,16,8,8"
+            </Label>-->
+            <CheckBox Grid.Row="3" Margin="8,8,16,8"
                       FontSize="14"
                       x:Name="startAgainCheckBox"
                       x:FieldModifier="private">
                 startAgainCheckBox
             </CheckBox>
-            <CheckBox Grid.Row="4" Margin="8"
+            <CheckBox Grid.Row="4" Margin="8,4,8,8"
                       IsChecked="True"
                       FontSize="14"
                       x:Name="showExportedCheckBox"
                       x:FieldModifier="private">
                 showExportedCheckBox
             </CheckBox>
+            <CheckBox Grid.Row="5" Margin="8,4,8,16"
+                      IsChecked="False"
+                      FontSize="14"
+                      x:Name="showLogCheckBox"
+                      x:FieldModifier="private">
+                showLogCheckBox
+            </CheckBox>
             <extToolkit:WatermarkTextBox Grid.Row="6" 
                                          TextWrapping="Wrap" 
-                                         Height="50" 
-                                         Margin="0,0,0,8"
+                                         Height="Auto" 
+                                         Margin="0,0,0,0"
                                          MaxLength="2000"
+                                         AcceptsReturn="True"
                                          x:Name="feedbackTextBox"
                                          x:FieldModifier="private"/>
         </Grid>

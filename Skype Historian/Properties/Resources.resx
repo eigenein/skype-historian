@@ -153,6 +153,9 @@
   <data name="FinishingPageShowExported" xml:space="preserve">
     <value>Show exported data</value>
   </data>
+  <data name="FinishingPageShowLog" xml:space="preserve">
+    <value>Show log</value>
+  </data>
   <data name="FinishingPageStartAgain" xml:space="preserve">
     <value>Start again</value>
   </data>

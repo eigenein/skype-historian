@@ -79,10 +79,14 @@ namespace SkypeHistorian.Controls.Pages
             noteLabel.Text = String.Format(
                 Context.ResourceManager.GetString(note),
                 Context.StatusCode);
-            chatsExportedLabel.Content = String.Format(
-                chatsExportedString, Context.ExportedChatCount, Context.ChatCount);
-            messagesExportedLabel.Content = String.Format(
-                messagesProcessedString, Context.ProcessedMessagesCount);
+            exportedLabel.Content = String.Format("{0} / {1}",
+                String.Format(
+                    chatsExportedString, 
+                    Context.ExportedChatCount, 
+                    Context.ChatCount),
+                String.Format(
+                    messagesProcessedString, 
+                    Context.ProcessedMessagesCount));
             showExportedCheckBox.IsChecked = Context.StatusCode == StatusCode.Finished;
             showExportedCheckBox.IsEnabled = Context.ProcessedMessagesCount > 0;
             startAgainCheckBox.IsChecked = Context.StatusCode != StatusCode.Finished;
@@ -104,6 +108,8 @@ namespace SkypeHistorian.Controls.Pages
                 "FinishingPageFeedbackWatermark");
             busyIndicator.BusyContent = Context.ResourceManager.GetString(
                 "FinishingPageBusyText");
+            showLogCheckBox.Content = Context.ResourceManager.GetString(
+                "FinishingPageShowLog");
         }
 
         public override void OnFinish()
@@ -112,6 +118,12 @@ namespace SkypeHistorian.Controls.Pages
             {
                 Logger.Info("Showing exported data ...");
                 Context.OutputWriter.ShowDataToUser();
+            }
+            if (showLogCheckBox.IsChecked == true)
+            {
+                System.Diagnostics.Process.Start(
+                    "explorer.exe",
+                    "/select, \"Skype Historian.log\"");
             }
             if (startAgainCheckBox.IsChecked == true)
             {
