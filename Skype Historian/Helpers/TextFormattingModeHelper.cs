@@ -10,12 +10,14 @@ namespace SkypeHistorian.Helpers
     /// </summary>
     internal static class TextFormattingModeHelper
     {
-        private const string TextOptionsTypeName =
+        private const int TextFormattingModeDisplay = 1;
+
+        private static readonly string[] TextOptionsTypeNames = new string[]
+        {
             "System.Windows.Media.TextOptions, " +
             "PresentationFramework, Version=4.0.0.0, " +
-            "Culture=neutral, PublicKeyToken=31bf3856ad364e35";
-
-        private const int TextFormattingModeDisplay = 1;
+            "Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+        };
 
         private static readonly Logger Logger = 
             LogManager.GetCurrentClassLogger();
@@ -26,18 +28,27 @@ namespace SkypeHistorian.Helpers
         {
             Logger.Info("CLR version: {0}.", Environment.Version);
             Logger.Info("Looking for System.Windows.Media.TextOptions ...");
-            Type textOptionsType = Type.GetType(TextOptionsTypeName);
-            if (textOptionsType != null)
+            SetTextFormattingModeMethodInfo = null;
+            foreach (string textOptionsTypeName in TextOptionsTypeNames)
             {
-                Logger.Info("Looking for SetTextFormattingMode ...");
-                SetTextFormattingModeMethodInfo = 
-                    textOptionsType.GetMethod("SetTextFormattingMode");
+                Type textOptionsType = Type.GetType(textOptionsTypeName);
+                if (textOptionsType != null)
+                {
+                    Logger.Info(
+                        "Looking for SetTextFormattingMode as '{0}' ...",
+                        textOptionsTypeName);
+                    SetTextFormattingModeMethodInfo =
+                        textOptionsType.GetMethod("SetTextFormattingMode");
+                    if (SetTextFormattingModeMethodInfo != null)
+                    {
+                        Logger.Info(
+                            "Found SetTextFormattingMode: {0}.",
+                            SetTextFormattingModeMethodInfo.ToString());
+                        return;
+                    }
+                }
             }
-            else
-            {
-                Logger.Info("System.Windows.Media.TextOptions is not available.");
-                SetTextFormattingModeMethodInfo = null;
-            }
+            Logger.Info("SetTextFormattingMode is not found.");
         }
 
         /// <summary>

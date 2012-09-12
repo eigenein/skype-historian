@@ -151,7 +151,8 @@ namespace SkypeHistorian.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Want to send a feedback? Write up to 2000 characters and press Finish.
+        ///   Looks up a localized string similar to Want to send a feedback?
+        ///Write up to 2000 characters and press Finish.
         /// </summary>
         public static string FinishingPageFeedbackWatermark {
             get {
