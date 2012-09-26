@@ -198,7 +198,7 @@ namespace SkypeHistorian.Controls.Pages
 
         private bool ExportChat(IChat chat)
         {
-            Logger.Info("Started processing a chat.");
+            Logger.Info("Started processing a chat: {0}.", chat.Name);
             IEnumerator messageEnumerator;
             if (!GetMessageCollection(chat, out messageEnumerator))
             {
