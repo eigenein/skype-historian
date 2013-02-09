@@ -131,7 +131,11 @@ namespace SkypeHistorian.Controls.Pages
                     }
                     else
                     {
-                        break;
+                        Logger.Warn(
+                            "The chat is skipped to the error: {0}",
+                            Context.StatusCode);
+                        // Reset the error as we've just skipped this error.
+                        Context.StatusCode = StatusCode.NoError;
                     }
                     Logger.Info("Date filter skipped count: {0}", Context.DateFilterSkippedCount);
                 }
