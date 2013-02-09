@@ -1,6 +1,6 @@
 ﻿[Setup]
 AppName=Skype Historian
-AppVersion=0.3.79.0
+AppVersion=0.3.81.0
 AppMutex=DCFF433C-AA29-4ED0-9F12-B9C143800299
 DefaultDirName={localappdata}\Skype Historian
 DefaultGroupName=Skype Historian
