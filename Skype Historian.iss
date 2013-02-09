@@ -1,6 +1,6 @@
 ﻿[Setup]
 AppName=Skype Historian
-AppVersion=0.3.74.0
+AppVersion=0.3.79.0
 AppMutex=DCFF433C-AA29-4ED0-9F12-B9C143800299
 DefaultDirName={localappdata}\Skype Historian
 DefaultGroupName=Skype Historian
@@ -10,13 +10,13 @@ AppComments=Allows you to backup all your Skype chats history
 AppContact=eigenein@gmail.com
 AppCopyright=Pavel Perestoronin (c) 2011
 AppPublisher=Pavel Perestoronin
-OutputDir=..\Installers
+OutputDir=.\Installers
 PrivilegesRequired=lowest
 SolidCompression=yes
 SetupIconFile=SetupIconFile.ico
 UninstallDisplayIcon="{app}\Skype Historian.exe"
 UninstallDisplayName=Skype Historian
-VersionInfoVersion=0.3.74.0
+VersionInfoVersion=
 WizardImageFile=compiler:WizModernImage-IS.bmp
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 

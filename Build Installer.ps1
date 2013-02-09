@@ -36,7 +36,8 @@ $nextVersion = $nextVersionObject.ToString()
 Write-Output "Updating to ${nextVersion}"
 Set-Version 'Skype Historian\Properties\AssemblyInfo.cs' $nextVersion
 Set-Installer-Version 'Skype Historian.iss' $nextVersion
-echo $nextVersion | Out-File -Encoding ASCII '..\Installers\latest-version.txt'
+New-Item '.\Installers' -type directory -force
+echo $nextVersion | Out-File -Encoding ASCII '.\Installers\latest-version.txt'
 Write-Output 'Building Skype Historian ...'
 C:\Windows\Microsoft.NET\Framework\v3.5\MSBuild 'Skype Historian.sln' /t:Rebuild /p:Configuration=Release /p:PlatformToolset=v90
 if ($LastExitCode -ne 0)
@@ -45,18 +46,14 @@ if ($LastExitCode -ne 0)
 }
 else
 {
-    Write-Output 'Signing ...'
-    & 'C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin\signtool' sign /f c:\users\eigenein\Documents\Keys\p.perestoronin.pfx 'Skype Historian\bin\Release\Skype Historian.exe'
     Write-Output 'Building Installer ...'
-    rm '..\Installers\*.exe'
-    & 'C:\Program Files (x86)\Inno Setup 5\iscc' 'Skype Historian.iss'
+    rm '.\Installers\*.exe'
+    & "${Env:ProgramFiles}\Inno Setup 5\iscc" 'Skype Historian.iss'
     if ($LastExitCode -eq 0)
     {
-        Write-Output 'Signing the installer ...'
-        & 'C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin\signtool' sign /f c:\users\eigenein\Documents\Keys\p.perestoronin.pfx '..\Installers\Setup.exe'
         Write-Output 'Finishing ...'
-        $targetFileName = "..\Installers\Skype_Historian_${nextVersion}_Setup.exe"
-        Move-Item '..\Installers\Setup.exe' $targetFileName -Force
+        $targetFileName = ".\Installers\Skype_Historian_${nextVersion}_Setup.exe"
+        Move-Item '.\Installers\Setup.exe' $targetFileName -Force
         Write-Output "Installer: ${targetFileName}"
     }
     else
