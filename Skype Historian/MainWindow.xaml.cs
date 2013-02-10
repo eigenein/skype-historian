@@ -96,6 +96,25 @@ namespace SkypeHistorian
 
             Context.Instance.ResourceManager = ResourceManager;
             pagesControl.InitializeLocalization();
+
+            if (pagesControl.ActivePage != null)
+            {
+                InitializeNextButtonLocalization(pagesControl.ActivePage.NextButton);
+            }
+        }
+
+        private void InitializeNextButtonLocalization(ButtonType buttonType)
+        {
+            if (buttonType == ButtonType.Next)
+            {
+                nextButton.Content = Context.Instance.ResourceManager.GetString(
+                    "MainWindowNext");
+            }
+            else if (buttonType == ButtonType.Finish)
+            {
+                nextButton.Content = Context.Instance.ResourceManager.GetString(
+                    "MainWindowFinish");
+            }
         }
 
         private void UpdateHeadingColor()
@@ -125,16 +144,7 @@ namespace SkypeHistorian
                     FontWeights.Normal;
             }
             nextButton.IsEnabled = e.Page.NextButton != ButtonType.Disabled;
-            if (e.Page.NextButton == ButtonType.Next)
-            {
-                nextButton.Content = Context.Instance.ResourceManager.GetString(
-                    "MainWindowNext");
-            }
-            else if (e.Page.NextButton == ButtonType.Finish)
-            {
-                nextButton.Content = Context.Instance.ResourceManager.GetString(
-                    "MainWindowFinish");
-            }
+            InitializeNextButtonLocalization(e.Page.NextButton);
             categoryToLabelCache[pagesControl.ActivePage.Category].FontWeight =
                 FontWeights.Bold;
             UpdateHeadingColor();
