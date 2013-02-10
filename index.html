@@ -1,244 +1,251 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
 
-<script type="text/javascript">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Skype Historian</title>
+    <meta name="author" content="Pavel Perestoronin">
+    <meta name="description" content="Skype Historian">
+    <meta name="keywords" content="skype, export, backup" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="publisher" href="https://plus.google.com/112524292459304605158?rel=author">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-26102003-1']);
-  _gaq.push(['_trackPageview']);
+    <!-- Le styles -->
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/bootswatch/2.1.1/cosmo/bootstrap.min.css" rel="stylesheet">
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
 
-</script>
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="/favicon.png" />
 
-<script type="text/javascript">
-    var userLang = (navigator.language) ? navigator.language : navigator.userLanguage;
-    if (userLang.indexOf('ru') == 0) {
-        window.location = './ru/';
-    }
-</script>
+    <!-- Google Analytics -->
+    <script type="text/javascript">
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="Lets you easily backup your Skype chats" />
-<meta name="keywords" content="Skype,history,chats,backup,save" />
-<meta name="author" content="Pavel Perestoronin" />
-<META NAME="ROBOTS" CONTENT="ALL"> 
-<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
-<META HTTP-EQUIV="Expires" CONTENT="-1">
-<title>Skype Historian</title>
-<link rel="stylesheet" href="styles.css" type="text/css" />
-<link rel="shortcut icon" href="images/favicon.png" />
-            
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/slider.js"></script>
-<script type="text/javascript" src="js/superfish.js"></script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-26102003-1']);
+      _gaq.push(['_trackPageview']);
 
-<script type="text/javascript" src="js/custom.js"></script>
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
 
-<script type="text/javascript">
-/* <![CDATA[ */
-    (function() {
-        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-        t.parentNode.insertBefore(s, t);
-    })();
-/* ]]> */
-</script>
+    </script>
+  </head>
 
-<!--
-widget, a free CSS web template by spyka Webmaster (www.spyka.net)
+  <body data-spy="scroll" data-target=".navbar">
 
-Download: http://www.spyka.net/web-templates/widget/
-
-License: Creative Commons Attribution
-//-->
-</head>
-
-<body class="homepage">
-<div id="container">
-	<div id="header">
-    	<h1><a href="index.html">Skype<strong>Historian</strong></a></h1>
-        <h2>Easily backup all your Skype chats</h2>
-        <div class="clear"></div>
-    </div>
-    <div id="nav">
-    	<ul class="sf-menu dropdown">
-        	<li class="selected"><a href=".">About</a></li>
-            <li><a href="downloads.html">Download</a></li>
-            <li><a href="tutorial.html">Tutorial</a></li>
-        </ul>
-    </div>
-    
-    <div id="slides-container" class="slides-container">
-        <div id="slides">
-            <div>
-                <div class="slide-image"><img src="images/slide-1.png" alt="Easy to use" /></div>
-                <div class="slide-text">
-                    <h2>Easy to use</h2>
-                    <p>Download Skype Historian and backup your chats in several clicks. <strong>It's free!</strong></p>
-                    <p class="frontpage-button">
-                    	<a href="downloads.html">Download the latest version</a>
-                    </p>
-                </div>
-            </div>
-            
-            <div>
-                <div class="slide-image"><img src="images/slide-2.png" alt="Different outputs" /></div>
-                <div class="slide-text">
-                    <h2>Different formats</h2>
-                    <p>
-                        Your chats can be saved into simple text files, in JSON, in CSV or in XML format. Additionally,
-                        you can choose to compress the exported data into a single ZIP archive.
-                    </p>
-                </div>
-            </div>
-            
-            <div>
-                <div class="slide-image slide-image-right"><img src="images/slide-3.png" alt="Never lose your chats" /></div>
-                <div class="slide-text">
-                    <h2>Never lose your chats</h2>
-                    <p>
-                        Once you have exported your chats out of Skype, you'll be able to copy them everywhere or even to take with yourself.
-                    </p>
-                </div>
-            </div>
-		</div>
-        <div class="controls"><span class="jFlowNext"><span>Next</span></span><span class="jFlowPrev"><span>Prev</span></span></div>        
-        <div id="myController" class="hidden"><span class="jFlowControl">Slide 1</span><span class="jFlowControl">Slide 1</span><span class="jFlowControl">Slide 1</span></div>
-    </div>
-        
-    <div id="body">            
-		<div id="content">
-            <div class="box">
-                <h2>About</h2>
-                
-                <p>When you reinstall your operating system or change you computer you lose all your chats history. Skype Historian allows you to easily backup all your Skype chats to files in different formats.</p>	
-                
-                <p>Skype Historian allows to export your chats into the following formats:</p>
-    
-                <ul class="styledlist">
-                    <li>Text Files (*.txt)</li>
-                    <li><a href="http://en.wikipedia.org/wiki/JSON" title="JavaScript Object Notation">JavaScript Object Notation</a></li>
-                    <li><a href="http://en.wikipedia.org/wiki/Comma-separated_values" title="Comma-separated values">Comma-separated values</a></li>
-                    <li><a href="http://en.wikipedia.org/wiki/XML" title="Extensible Markup Language">XML</a></li>
-                </ul>
-                
-                <p>Additionally, files can be compressed into a single ZIP archive.</p>
-        
-                <h2>News</h2>
-                
-                <h3>Skype Historian 0.3.74.0 release</h3>
-                
-                <p>
-                    Changes:
-                    <ul>
-                        <li><strong>Users with .NET Framework 4.0 or .NET Framework 4.5 installed will see clear fonts on the application window.</strong></li>
-                        <li>Fixed incorrect statistics label.</li>
-                        <li>Checkbox to easily locate the applications logs (useful when reporting bugs).</li>
-                        <li>Feedback maximum length increased to 2000 characters.</li>
-                    </ul>
-                </p>
-
-                <h3>Skype Historian 0.3 is released!</h3>
-                
-                <p>
-                    Major changes:
-                    <ul>
-                        <li>Ability to send a feedback after exporting.</li>
-                        <li>Fixed installer scenario when Skype Historian is running during updating.</li>
-                        <li>Exporting progress is now more exact.</li>
-                    </ul>
-                </p>
-        
-                <h3>Skype Historian 0.2.47.0</h3>
-
-                <p>
-                    In this release:
-                    <ul>
-                        <li><strong>Added date filter.</strong></li>
-                    </ul>
-                </p>
-        
-                <h3>Skype Historian 0.2</h3>
-
-                <p>
-                    In this release:
-                    <ul>
-                        <li><strong>Added update notifications!</strong></li>
-                        <li><strong>Ability to use nicknames instead of full names in chat titles.</strong></li>
-                        <li>Fixed invalid month name in Russian version.</li>
-                        <li>Fixed the problem with empty messages.</li>
-                        <li>Fixed hanging of the "Choose Output" page.</li>
-                    </ul>
-                </p>
-        
-                <h3>Skype Historian 0.1.40.0</h3>
-
-                <p>A minor release with several bugfixes.</p>
-        
-                <h3>Skype Historian is released!</h3>
-
-                <p>I'm pleased to announce the first release of Skype Historian - the free application for exporting the Skype chats.</p>
-            </div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="">Skype Historian</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="#about">About</a></li>
+              <li><a href="#screenshots">Screenshots</a></li>
+              <li><a href="#requirements">Requirements</a></li>
+              <li><a href="#downloads">Downloads</a></li>
+              <li><a href="#news">News</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
         </div>
-        
-        <div class="sidebar">
-            <ul>	
-                
-                <li>
-                    <h4><span>System <strong>Requirements</strong></span></h4>
-                    <ul>
-                        <li>
-                        	<p style="margin: 0;">
-                                <strong>Windows 7</strong> / Windows XP with <a href="http://www.microsoft.com/download/en/details.aspx?id=21" title="Download Microsoft .NET Framework 3.5">.NET Framework 3.5</a>
-                            </p>
-                        </li>
-                    </ul>
-                </li>
-                
-                <li>
-                    <h4><span>Support <strong>Development</strong></span></h4>
-                    <ul>
-                        <li>
-                            <a href="http://flattr.com/thing/404856/Skype-Historian" target="_blank">
-                            <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a>
-                            <p style="margin: 0;">
-                                Skype Historian is <strong>free software</strong>. You can support its development by clicking this button.
-                            </p>
-                        </li>
-                    </ul>
-                </li>
-                
-                <li>
-                    <h4><span>Found <strong>a bug?</strong></span></h4>
-                    <ul>
-                        <li>
-                            <p style="margin: 0;">
-                                <a href="mailto:skype-historian-app@tut.by">Send me a mail</a>
-                                and I'll try to help you!
-                            </p>
-                        </li>
-                    </ul>
-                </li>
-                
-            </ul> 
-        </div>
-    	<div class="clear"></div>
+      </div>
     </div>
-</div>
- 
-<div id="footer-links">
 
-<!-- A link to http://www.spyka.net must remain. To remove link see http://www.spyka.net/licensing -->
-        <p><a href="http://eigenein.info">Pavel Perestoronin</a> &copy; 2011-2012. Website design by <a href="http://www.spyka.net">Free CSS Templates</a></p>
-</div>  
+    <div class="container">
 
-</body>
+      <!-- Masthead
+      ================================================== -->
+      <header class="jumbotron subhead" id="overview">
+        <div class="row">
+          <div class="span12">
+            <h1>Skype Historian</h1>
+            <p class="lead">Save your chats easily</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- About
+      ================================================== -->
+      <section id="about">
+
+        <div class="page-header">
+          <h1>About</h1>
+        </div>
+
+        <div class="row">
+
+          <div class="span12">
+            <p>When you reinstall your operating system or change you computer you lose all your chats history. <strong>Skype Historian</strong> allows you to easily backup all your Skype chats to files in different formats. Files can also be compressed into a single ZIP archive.</p>
+            <p>
+              <strong>Skype Historian</strong> allows to export your chats into the following formats:
+              <ul>
+                <li>Plain Text Files</li>
+                <li>JavaScript Object Notation</li>
+                <li>Comma-separated values</li>
+                <li>eXtensible Markup Language</li>
+              </ul>
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- Screenshots
+      ================================================== -->
+      <section id="screenshots">
+
+        <div class="page-header">
+          <h1>Screenshots</h1>
+        </div>
+
+        <div class="row">
+
+          <div class="span12">
+            <ul class="thumbnails">
+              <li class="span4">
+                <a href="#" class="thumbnail">
+                  <img src="http://placehold.it/300x200" alt="">
+                </a>
+              </li>
+              <li class="span4">
+                <a href="#" class="thumbnail">
+                  <img src="http://placehold.it/300x200" alt="">
+                </a>
+              </li>
+              <li class="span4">
+                <a href="#" class="thumbnail">
+                  <img src="http://placehold.it/300x200" alt="">
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- Requirements
+      ================================================== -->
+      <section id="requirements">
+
+        <div class="page-header">
+          <h1>System Requirements</h1>
+        </div>
+
+        <div class="row">
+
+          <div class="span12">
+            <p><strong>Skype Historian</strong> runs pretty well on <strong>Windows 8, Windows 7</strong> and Windows XP with <a href="http://www.microsoft.com/download/en/details.aspx?id=21">.NET Framework 3.5</a> installed.</p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- Downloads
+      ================================================== -->
+      <section id="downloads">
+
+        <div class="page-header">
+          <h1>Downloads</h1>
+        </div>
+
+        <div class="row">
+
+          <div class="span12">
+            <p>TODO</p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- About
+      ================================================== -->
+      <section id="news">
+
+        <div class="page-header">
+          <h1>News</h1>
+        </div>
+
+        <div class="row">
+
+          <div class="span12">
+            <h3>Skype Historian 0.3.74.0 release</h3>
+            <ul>
+              <li><strong>Users with .NET Framework 4.0 or .NET Framework 4.5 installed will see clear fonts on the application window.</strong></li>
+              <li>Fixed incorrect statistics label.</li>
+              <li>Checkbox to easily locate the applications logs (useful when reporting bugs).</li>
+              <li>Feedback maximum length increased to 2000 characters.</li>
+            </ul>
+
+            <h3>Skype Historian 0.3 release</h3>
+            <ul>
+              <li>Ability to send a feedback after exporting.</li>
+              <li>Fixed installer scenario when Skype Historian is running during updating.</li>
+              <li>Exporting progress is now more exact.</li>
+            </ul>
+
+            <h3>Skype Historian 0.2.47.0</h3>
+            <ul>
+              <li><strong>Added date filter.</strong></li>
+            </ul>
+
+            <h3>Skype Historian 0.2</h3>
+            <ul>
+              <li><strong>Added update notifications.</strong></li>
+              <li><strong>Ability to use nicknames instead of full names in chat titles.</strong></li>
+              <li>Fixed invalid month name in Russian version.</li>
+              <li>Fixed the problem with empty messages.</li>
+              <li>Fixed hanging of the "Choose Output" page.</li>
+            </ul>
+
+            <h3>Skype Historian 0.1.40.0</h3>
+            <p>A minor release with several bugfixes.</p>
+
+            <h3>Skype Historian is released!</h3>
+            <p>I'm pleased to announce the first release of Skype Historian - the free application for exporting the Skype chats.</p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- Footer
+      ================================================== -->
+      <hr>
+
+      <footer id="footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>Made by <a target="_blank" href="http://eigenein.info">Pavel Perestoronin</a>. Contact <a href="mailto:eigenein+skypehistorian@gmail.com">eigenein+skypehistorian@gmail.com</a>.<br/>
+        Based on <a target="_blank" href="http://twitter.github.com/bootstrap/">Bootstrap</a>. Hosted on <a target="_blank" href="http://pages.github.com/">GitHub</a>. Icons from <a target="_blank" href="http://glyphicons.com/">Glyphicons</a>. Web fonts from <a target="_blank" href="http://www.google.com/webfonts">Google</a>.</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
+
+  </body>
 </html>
