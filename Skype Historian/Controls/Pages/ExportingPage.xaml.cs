@@ -129,10 +129,12 @@ namespace SkypeHistorian.Controls.Pages
                                 chatsExportedString,
                                 Context.ExportedChatCount, Context.ChatCount)));
                     }
-                    else
+                    else if (
+                        Context.StatusCode == StatusCode.NoError ||
+                        Context.StatusCode == StatusCode.SkypeCannotGetChatCollection)
                     {
                         Logger.Warn(
-                            "The chat is skipped to the error: {0}",
+                            "The chat is skipped due to the error: {0}",
                             Context.StatusCode);
                         // Reset the error as we've just skipped this error.
                         Context.StatusCode = StatusCode.NoError;
@@ -215,6 +217,10 @@ namespace SkypeHistorian.Controls.Pages
                 Context.StatusCode = StatusCode.SkypeCannotGetChatProperties;
                 return false;
             }
+
+            // Debug counters.
+            int exportedMessageCount = 0;
+            int skippedMessageCount = 0;
             Logger.Info("Started processing {0} chat.", members);
             while (true)
             {
@@ -247,13 +253,23 @@ namespace SkypeHistorian.Controls.Pages
                         Context.StatusCode = StatusCode.MessageStoringFailed;
                         break;
                     }
+                    else
+                    {
+                        exportedMessageCount += 1;
+                    }
                 }
                 else
                 {
                     Context.DateFilterSkippedCount += 1;
+                    skippedMessageCount += 1;
                 }
                 Context.ProcessedMessagesCount += 1;
             }
+
+            Logger.Info(
+                "Exported {0} message(s), skipped by the filter {1} message(s).",
+                exportedMessageCount,
+                skippedMessageCount);
             return true;
         }
 
@@ -291,14 +307,20 @@ namespace SkypeHistorian.Controls.Pages
             {
                 return false;
             }
-            int messageCount;
-            if (!SafeInvoker.Invoke(() => messageCollection.Count, out messageCount))
+            ChatMessageEnumerator messageEnumerator;
+            if (!SafeInvoker.Invoke(
+                () => ChatMessageEnumerator.Create(messageCollection),
+                out messageEnumerator))
             {
                 return false;
             }
-            Logger.Info("{0} message(s) found in this chat.", messageCount);
-            return SafeInvoker.Invoke(messageCollection.GetEnumerator,
-                out enumerator);
+
+            Logger.Info(
+                "{0} message(s) found in this chat.", 
+                messageEnumerator.Count);
+
+            enumerator = messageEnumerator;
+            return true;
         }
 
         private void UpdateStatistics(object state)

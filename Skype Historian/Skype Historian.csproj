@@ -170,6 +170,7 @@
     <Compile Include="Exporting\StorageFactory.cs" />
     <Compile Include="Exporting\Storages\FileSystemStorage.cs" />
     <Compile Include="Exporting\Storages\ZipFileStorage.cs" />
+    <Compile Include="Helpers\ChatMessageEnumerator.cs" />
     <Compile Include="Helpers\DateTimeExtensions.cs" />
     <Compile Include="Helpers\JsonTextWriterExtensions.cs" />
     <Compile Include="Helpers\NativeMethods.cs" />
