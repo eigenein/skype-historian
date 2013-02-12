@@ -194,7 +194,7 @@
     <value>Вышла новая версия Skype Historian. Хотите ли вы перейти на сайт для скачивания?</value>
   </data>
   <data name="MainWindowWebsite" xml:space="preserve">
-    <value>http://eigenein.info/skype-historian/</value>
+    <value>http://eigenein.info/skype-historian/ru/</value>
   </data>
   <data name="MessagesProcessed" xml:space="preserve">
     <value>обработано {0} сообщений</value>
