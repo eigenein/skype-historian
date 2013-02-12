@@ -225,7 +225,8 @@ namespace SkypeHistorian
 
         private void FlattrImageMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Process.Start(new ProcessStartInfo("http://flattr.com/thing/404856/Skype-Historian"));
+            Process.Start(new ProcessStartInfo(
+                "http://flattr.com/thing/404856/Skype-Historian"));
         }
     }
 }   
