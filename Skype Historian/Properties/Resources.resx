@@ -144,6 +144,9 @@
   <data name="ExportingPageTitle" xml:space="preserve">
     <value>Exporting</value>
   </data>
+  <data name="ExportingPageAndOthers" xml:space="preserve">
+    <value> and others</value>
+  </data>
   <data name="FinishingPageBusyText" xml:space="preserve">
     <value>Sending the feedback...</value>
   </data>

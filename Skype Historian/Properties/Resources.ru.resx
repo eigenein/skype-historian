@@ -277,4 +277,7 @@
   <data name="WelcomePageWelcomeLabel" xml:space="preserve">
     <value>Skype Historian поможет Вам сохранить и, тем самым, не потерять важные переписки.</value>
   </data>
+  <data name="ExportingPageAndOthers" xml:space="preserve">
+    <value> и другие</value>
+  </data>
 </root>

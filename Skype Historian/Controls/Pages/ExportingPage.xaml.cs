@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.IO;
 using System.Text;
 using System.Threading;
 using NLog;
@@ -26,6 +27,7 @@ namespace SkypeHistorian.Controls.Pages
         private string messagesProcessedString;
         private string exportingPageClosingString;
         private string waitingForSkypeString;
+        private string andOthersString;
 
         public ExportingPage()
             : this(null)
@@ -55,6 +57,8 @@ namespace SkypeHistorian.Controls.Pages
                 "ExportingPageClosing");
             waitingForSkypeString = Context.ResourceManager.GetString(
                 "WaitingForSkypeString");
+            andOthersString = Context.ResourceManager.GetString(
+                "ExportingPageAndOthers");
         }
 
         public override string Title
@@ -248,7 +252,19 @@ namespace SkypeHistorian.Controls.Pages
                 {
                     string chatPath = Context.GroupingStrategy.GetChatPathForMessage(
                         members, messageTimeStamp);
-                    if (!Context.OutputWriter.StoreMessage(chatPath, chat, message))
+                    bool successfullyStored = false;
+                    try
+                    {
+                        successfullyStored = Context.OutputWriter.StoreMessage(
+                            chatPath, chat, message);
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.ErrorException("Message storing has failed.", ex);
+                        Context.StatusCode = StatusCode.MessageStoringFailed;
+                        break;
+                    }
+                    if (!successfullyStored)
                     {
                         Context.StatusCode = StatusCode.MessageStoringFailed;
                         break;
@@ -273,7 +289,7 @@ namespace SkypeHistorian.Controls.Pages
             return true;
         }
 
-        private static string GetMembersString(IChat chat)
+        private string GetMembersString(IChat chat)
         {
             StringBuilder builder = new StringBuilder();
             foreach (IUser user in chat.Members)
@@ -293,7 +309,7 @@ namespace SkypeHistorian.Controls.Pages
             if (builder.Length > 64)
             {
                 builder.Remove(64, builder.Length - 64);
-                builder.Append("...");
+                builder.Append(andOthersString);
             }
             return builder.ToString();
         }
