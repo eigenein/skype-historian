@@ -173,7 +173,7 @@ namespace SkypeHistorian
         private void WindowClosing(object sender, CancelEventArgs e)
         {
             e.Cancel = Context.Instance.IsExportingInProgress &&
-                Microsoft.Windows.Controls.MessageBox.Show(this,
+                Xceed.Wpf.Toolkit.MessageBox.Show(this,
                 confirmCloseString, "Skype Historian",
                 MessageBoxButton.YesNo, MessageBoxImage.Question) ==
                 MessageBoxResult.No;
@@ -213,7 +213,7 @@ namespace SkypeHistorian
         /// </summary>
         private void AskForGoingToUpdate()
         {
-            if (Microsoft.Windows.Controls.MessageBox.Show(this,
+            if (Xceed.Wpf.Toolkit.MessageBox.Show(this,
                 ResourceManager.GetString("MainWindowUpdateAvailable"),
                 "Skype Historian", MessageBoxButton.YesNo,
                 MessageBoxImage.Question) == MessageBoxResult.Yes)

@@ -36,7 +36,7 @@ namespace SkypeHistorian
             {
                 mutex = null;
                 Logger.Warn("Application is already running.");
-                Microsoft.Windows.Controls.MessageBox.Show(ResourceManager.GetString(
+                Xceed.Wpf.Toolkit.MessageBox.Show(ResourceManager.GetString(
                     "AppAlreadyRunning"), "Skype Historian", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 Logger.Warn("Quitting.");
                 Shutdown(1);

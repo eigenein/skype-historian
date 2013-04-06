@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using Microsoft.Windows.Controls;
 using NLog;
 using SkypeHistorian.Exporting;
-using MessageBox = Microsoft.Windows.Controls.MessageBox;
+using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
 using RadioButton = System.Windows.Controls.RadioButton;
 
 namespace SkypeHistorian.Controls.Pages
