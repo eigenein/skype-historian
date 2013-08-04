@@ -8,8 +8,8 @@
                     mc:Ignorable="d" 
                     d:DesignHeight="300" d:DesignWidth="300">
     <xctk:BusyIndicator IsBusy="False"
-                              x:Name="busyIndicator"
-                              x:FieldModifier="private">
+                        x:Name="busyIndicator"
+                        x:FieldModifier="private">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
