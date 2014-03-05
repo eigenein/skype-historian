@@ -172,9 +172,6 @@ Write up to 2000 characters and press Finish</value>
   <data name="MainWindowFinish" xml:space="preserve">
     <value>Finish</value>
   </data>
-  <data name="MainWindowFlattr" xml:space="preserve">
-    <value>Support this program on Flattr!</value>
-  </data>
   <data name="MainWindowLeftBarExporting" xml:space="preserve">
     <value>Exporting</value>
   </data>
