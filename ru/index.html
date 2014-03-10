@@ -76,8 +76,8 @@
             <ul class="nav">
               <li><a href="#about">О Skype Historian</a></li>
               <li><a href="#screenshots">Скриншоты</a></li>
-              <li><a href="#requirements">Системные требования</a></li>
               <li><a href="#downloads">Скачать</a></li>
+              <li><a href="#donate">Поддержать</a></li>
               <li><a href="#news">Новости</a></li>
             </ul>
             <ul class="nav pull-right">
@@ -216,23 +216,54 @@
                 <a href="http://skype-historian.software.informer.com/" class="btn btn-large" onclick="_gaq.push(['_trackEvent', 'Downloads', 'Download Skype Historian', 'Software Informer']);" target="_blank">Скачать с Software Informer</a>
               </div>
             </p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- Donate
+      ================================================== -->
+
+      <section id="donate">
+
+        <div class="page-header">
+          <h1>Поддержать</h1>
+        </div>
+
+        <div class="row">
+
+          <div class="span12">
             <p>
-              Вы также можете поддержать это <strong>бесплатное</strong> приложение с помощью одной из этих кнопок.
+              Вы также можете поддержать это <strong>бесплатное</strong> приложение.
               <div class="btn-group">
-                <a href="http://flattr.com/thing/404856/Skype-Historian" class="btn btn-success" target="_blank">Flattr</a>
                 <form method="POST" target="_blank" action="https://money.yandex.ru/quickpay/confirm.xml" style="display: inline">
-                  <input name="receiver" type="hidden" value="410011693851843">
-                  <input name="label" value="" type="hidden">
-                  <input name="FormComment" type="hidden" value="Поддержать Skype Historian">
-                  <input name="short-dest" type="hidden" value="Поддержать Skype Historian">
-                  <input name="writable-targets" type="hidden" value="false">
-                  <input name="writable-sum" type="hidden" value="false">
-                  <input name="comment-needed" type="hidden" value="true">
-                  <input name="quickpay-form" type="hidden" value="small">
-                  <input name="targets" type="hidden" value="Поддержать Skype Historian">
-                  <input name="sum" type="hidden" maxlength="8" value="100">
-                  <input type="submit" class="btn btn-success" value="Яндекс.Деньги">
-                  <input type="hidden" name="mail" value="1">
+                  <input type="hidden" name="receiver" value="410011693851843">
+                  <input type="hidden" name="formcomment" value="eigenein">
+                  <input type="hidden" name="short-dest" value="Поддержать Skype Historian">
+                  <input type="hidden" name="quickpay-form" value="donate">
+                  <input type="hidden" name="targets" value="http://eigene.in/skype-historian/ru">
+                  <input type="hidden" name="sum" value="50" data-type="number">
+                  <input type="hidden" name="paymentType" value="AC">
+                  <input type="submit" class="btn btn-info btn-large" value="Банковская карта">
+                </form>
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="POST" target="_blank" style="display: inline">
+                  <input type="hidden" name="cmd" value="_s-xclick">
+                  <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+                  ">
+                  <input type="submit" class="btn btn-default btn-large" value="PayPal">
+                </form>
+                <a href="https://coinbase.com/checkouts/c8a394f8f2123850e2c83163ddc953b9" class="btn btn-primary btn-large" target="_blank">Биткоины</a>
+                <a href="http://flattr.com/thing/404856/Skype-Historian" class="btn btn-success btn-large" target="_blank">Flattr</a>
+                <form method="POST" target="_blank" action="https://money.yandex.ru/quickpay/confirm.xml" style="display: inline">
+                  <input type="hidden" name="receiver" value="410011693851843">
+                  <input type="hidden" name="formcomment" value="Pavel Perestoronin">
+                  <input type="hidden" name="short-dest" value="Donation to Skype Historian">
+                  <input type="hidden" name="quickpay-form" value="donate">
+                  <input type="hidden" name="targets" value="http://eigene.in/skype-historian">
+                  <input type="hidden" name="sum" value="50" data-type="number">
+                  <input type="hidden" name="paymentType" value="PC">
+                  <input type="submit" class="btn btn-warning btn-large" value="Яндекс.Деньги">
                 </form>
               </div>
             </p>
